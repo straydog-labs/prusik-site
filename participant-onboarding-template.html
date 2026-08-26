@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Participant onboarding for Straydog Guiding — health & fitness, emergency contact, climbing experience, and media release.">
+<title>Participant Onboarding | Straydog Guiding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Tokens (matches straydogguiding.com) ---------- */
+  :root{
+    --ink:#1B2420;
+    --chalk:#EFEBDD;
+    --surface:#FBF8EF;
+    --sandstone:#B5642B;
+    --rust:#833A22;
+    --moss:#5B6E4C;
+    --muted:#5E6B60;
+    --border:rgba(27,36,32,0.14);
+    --shadow:rgba(27,36,32,0.10);
+
+    --bg:var(--chalk);
+    --card:var(--surface);
+    --text:var(--ink);
+    --text-muted:var(--muted);
+    --accent:var(--sandstone);
+    --accent-strong:var(--rust);
+    --accent-2:var(--moss);
+    --line:var(--border);
+
+    --display:"Fraunces", Georgia, "Times New Roman", serif;
+    --body:"Archivo", -apple-system, "Segoe UI", sans-serif;
+    --mono:"IBM Plex Mono", "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#161F19; --card:#1E2A22; --text:#EDE8D8; --text-muted:#9FAB9C;
+      --accent:#DA8A4C; --accent-strong:#E7A876; --accent-2:#8FAA7B;
+      --line:rgba(237,232,216,0.14); --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161F19; --card:#1E2A22; --text:#EDE8D8; --text-muted:#9FAB9C;
+    --accent:#DA8A4C; --accent-strong:#E7A876; --accent-2:#8FAA7B;
+    --line:rgba(237,232,216,0.14); --shadow:rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--bg);color:var(--text);font-family:var(--body);
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-strong);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:var(--display);font-weight:800;text-wrap:balance;margin:0;letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:var(--mono);font-size:0.72rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--accent-strong);
+  }
+
+  header.top{border-bottom:1px solid var(--line);padding:22px 0;}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:var(--display);font-weight:800;font-size:1.05rem;text-decoration:none;color:var(--text);}
+  .wordmark em{font-style:normal;color:var(--accent-strong);}
+
+  .hero{padding:56px 0 32px;}
+  .hero h1{font-size:clamp(1.9rem,4.4vw,2.6rem);line-height:1.08;margin-top:10px;}
+  .hero p{color:var(--text-muted);max-width:560px;margin-top:16px;font-size:1.02rem;}
+  .hero .meta{
+    display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;
+    font-family:var(--mono);font-size:0.78rem;color:var(--text-muted);
+  }
+  .hero .meta span{display:flex;align-items:center;gap:6px;}
+  .hero .meta strong{color:var(--text);font-weight:500;}
+
+  form{padding-bottom:80px;}
+  .section-card{
+    background:var(--card);border:1px solid var(--line);border-radius:6px;
+    padding:32px 30px;margin-top:24px;box-shadow:0 1px 2px var(--shadow);
+  }
+  .section-card h2{font-size:1.3rem;}
+  .section-num{
+    font-family:var(--mono);font-size:0.72rem;color:var(--accent-strong);
+    letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;
+  }
+  .section-note{color:var(--text-muted);font-size:0.9rem;margin-top:8px;}
+
+  .field-row{margin-top:20px;}
+  .field-row.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .field-row.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+  @media (max-width:600px){
+    .field-row.two-col, .field-row.three-col{grid-template-columns:1fr;}
+  }
+  label{
+    display:block;font-size:0.86rem;font-weight:600;margin-bottom:6px;color:var(--text);
+  }
+  label .optional{font-weight:400;color:var(--text-muted);font-size:0.8rem;}
+  input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea, select{
+    width:100%;font-family:var(--body);font-size:0.95rem;color:var(--text);
+    background:var(--bg);border:1px solid var(--line);border-radius:4px;
+    padding:11px 12px;transition:border-color .15s;
+  }
+  input:focus, textarea:focus, select:focus{
+    outline:none;border-color:var(--accent-strong);
+  }
+  textarea{resize:vertical;min-height:80px;font-family:var(--body);}
+
+  fieldset{border:none;padding:0;margin:0;}
+  .choice-group{display:flex;flex-direction:column;gap:10px;margin-top:2px;}
+  .choice-group.inline{flex-direction:row;flex-wrap:wrap;gap:10px 22px;}
+  .choice{display:flex;align-items:flex-start;gap:9px;font-size:0.94rem;}
+  .choice input{margin-top:3px;width:16px;height:16px;accent-color:var(--accent-strong);flex-shrink:0;}
+  .choice label{margin:0;font-weight:400;font-size:0.94rem;}
+
+  .required::after{content:" *";color:var(--accent-strong);}
+
+  .divider{border:none;border-top:1px solid var(--line);margin:26px 0;}
+
+  .attest{
+    background:var(--bg);border:1px dashed var(--line);border-radius:4px;
+    padding:18px 20px;font-size:0.9rem;color:var(--text-muted);margin-top:20px;
+  }
+
+  .submit-row{margin-top:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  button[type="submit"]{
+    font-family:var(--body);font-weight:600;font-size:0.98rem;
+    background:var(--accent-strong);color:var(--bg);border:none;
+    padding:14px 30px;border-radius:4px;cursor:pointer;transition:background .15s, transform .15s;
+  }
+  button[type="submit"]:hover{background:var(--sandstone);transform:translateY(-1px);}
+  .submit-note{font-size:0.82rem;color:var(--text-muted);}
+
+  footer{border-top:1px solid var(--line);padding:24px 0 60px;}
+  footer .wrap{font-size:0.82rem;color:var(--text-muted);}
+</style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="wordmark" href="https://straydogguiding.com">STRAY<em>DOG</em> GUIDING</a>
+      <span class="eyebrow">Participant Onboarding</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Participant Onboarding</div>
+      <h1>Before we get started, we need a few things from you.</h1>
+      <p>This one form covers everything Straydog Guiding needs ahead of your session: health &amp; fitness, emergency contact info, your climbing background, and a quick media question. It takes about 5 minutes.</p>
+      <div class="meta">
+        <span>👥 <strong>Guide ratio held at 1:6</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <form class="wrap" action="https://formspree.io/f/mrpgzejn" method="POST">
+    <input type="hidden" name="_subject" value="Straydog Guiding — New Participant Onboarding">
+
+    <!-- Participant Info -->
+    <div class="section-card">
+      <span class="section-num">Participant Info</span>
+      <h2>Who you are</h2>
+      <div class="field-row two-col">
+        <div>
+          <label class="required" for="program_name">Program / clinic name</label>
+          <input type="text" id="program_name" name="Program Name" placeholder="e.g. Crux Wilderness Clinic" required>
+        </div>
+        <div>
+          <label class="required" for="program_location">Location</label>
+          <input type="text" id="program_location" name="Program Location" placeholder="e.g. Red Rocks NCA, NV" required>
+        </div>
+      </div>
+      <div class="field-row two-col">
+        <div>
+          <label class="required" for="full_name">Full legal name</label>
+          <input type="text" id="full_name" name="Full Name" required>
+        </div>
+        <div>
+          <label class="required" for="dob">Date of birth</label>
+          <input type="date" id="dob" name="Date of Birth" required>
+        </div>
+      </div>
+      <div class="field-row two-col">
+        <div>
+          <label class="required" for="email">Email</label>
+          <input type="email" id="email" name="Email" required>
+        </div>
+        <div>
+          <label class="required" for="phone">Phone</label>
+          <input type="tel" id="phone" name="Phone" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Health & Fitness -->
+    <div class="section-card">
+      <span class="section-num">Section 1 of 4</span>
+      <h2>Health &amp; Fitness Questionnaire</h2>
+      <p class="section-note">Straydog Guiding programs can involve a full day of physically demanding outdoor activity, including approach hikes, in variable weather, temperature, and elevation conditions.</p>
+
+      <div class="field-row">
+        <label class="required">Do any of the following apply to you? <span class="optional">(check all that apply)</span></label>
+        <fieldset class="choice-group inline">
+          <div class="choice"><input type="checkbox" id="cond_heart" name="Medical Conditions[]" value="Heart condition"><label for="cond_heart">Heart condition</label></div>
+          <div class="choice"><input type="checkbox" id="cond_resp" name="Medical Conditions[]" value="Asthma or respiratory condition"><label for="cond_resp">Asthma / respiratory condition</label></div>
+          <div class="choice"><input type="checkbox" id="cond_joint" name="Medical Conditions[]" value="Joint, back, or muscular condition"><label for="cond_joint">Joint, back, or muscular condition</label></div>
+          <div class="choice"><input type="checkbox" id="cond_diabetes" name="Medical Conditions[]" value="Diabetes"><label for="cond_diabetes">Diabetes</label></div>
+          <div class="choice"><input type="checkbox" id="cond_seizure" name="Medical Conditions[]" value="Seizure disorder"><label for="cond_seizure">Seizure disorder</label></div>
+          <div class="choice"><input type="checkbox" id="cond_pregnant" name="Medical Conditions[]" value="Pregnancy"><label for="cond_pregnant">Pregnancy</label></div>
+          <div class="choice"><input type="checkbox" id="cond_other" name="Medical Conditions[]" value="Other"><label for="cond_other">Other</label></div>
+          <div class="choice"><input type="checkbox" id="cond_none" name="Medical Conditions[]" value="None of the above"><label for="cond_none">None of the above</label></div>
+        </fieldset>
+      </div>
+
+      <div class="field-row">
+        <label for="cond_describe">If you checked any condition above, please describe <span class="optional">(optional)</span></label>
+        <textarea id="cond_describe" name="Condition Details"></textarea>
+      </div>
+
+      <div class="field-row two-col">
+        <div>
+          <label for="medications">Current medications <span class="optional">(optional)</span></label>
+          <textarea id="medications" name="Current Medications"></textarea>
+        </div>
+        <div>
+          <label for="allergies">Known allergies <span class="optional">(optional)</span></label>
+          <textarea id="allergies" name="Known Allergies"></textarea>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <label class="required">Are you currently able to safely participate in a full day of physically demanding outdoor activity as described above?</label>
+        <fieldset class="choice-group inline">
+          <div class="choice"><input type="radio" id="fit_yes" name="Fit For Activity" value="Yes" required><label for="fit_yes">Yes</label></div>
+          <div class="choice"><input type="radio" id="fit_no" name="Fit For Activity" value="No"><label for="fit_no">No</label></div>
+        </fieldset>
+      </div>
+
+      <div class="field-row">
+        <label>Has a physician ever advised you against strenuous physical activity? <span class="optional">(if yes, explain)</span></label>
+        <fieldset class="choice-group inline">
+          <div class="choice"><input type="radio" id="physician_yes" name="Physician Advised Against Activity" value="Yes"><label for="physician_yes">Yes</label></div>
+          <div class="choice"><input type="radio" id="physician_no" name="Physician Advised Against Activity" value="No"><label for="physician_no">No</label></div>
+        </fieldset>
+        <textarea style="margin-top:10px" id="physician_explain" name="Physician Advice Details" placeholder="Explain if yes"></textarea>
+      </div>
+    </div>
+
+    <!-- Emergency Contact -->
+    <div class="section-card">
+      <span class="section-num">Section 2 of 4</span>
+      <h2>Emergency Contact &amp; Medical Info</h2>
+      <p class="section-note">This information is used only in the event of a medical or rescue emergency during your session.</p>
+
+      <div class="field-row three-col">
+        <div>
+          <label class="required" for="ec1_name">Primary emergency contact — name</label>
+          <input type="text" id="ec1_name" name="Emergency Contact 1 Name" required>
+        </div>
+        <div>
+          <label class="required" for="ec1_rel">Relationship</label>
+          <input type="text" id="ec1_rel" name="Emergency Contact 1 Relationship" required>
+        </div>
+        <div>
+          <label class="required" for="ec1_phone">Phone</label>
+          <input type="tel" id="ec1_phone" name="Emergency Contact 1 Phone" required>
+        </div>
+      </div>
+
+      <div class="field-row three-col">
+        <div>
+          <label for="ec2_name">Secondary contact — name <span class="optional">(optional)</span></label>
+          <input type="text" id="ec2_name" name="Emergency Contact 2 Name">
+        </div>
+        <div>
+          <label for="ec2_rel">Relationship</label>
+          <input type="text" id="ec2_rel" name="Emergency Contact 2 Relationship">
+        </div>
+        <div>
+          <label for="ec2_phone">Phone</label>
+          <input type="tel" id="ec2_phone" name="Emergency Contact 2 Phone">
+        </div>
+      </div>
+
+      <div class="field-row two-col">
+        <div>
+          <label for="insurance">Health insurance provider <span class="optional">(optional)</span></label>
+          <input type="text" id="insurance" name="Health Insurance Provider">
+        </div>
+        <div>
+          <label for="policy">Policy number <span class="optional">(optional)</span></label>
+          <input type="text" id="policy" name="Policy Number">
+        </div>
+      </div>
+
+      <div class="field-row two-col">
+        <div>
+          <label for="physician_name">Physician name &amp; phone <span class="optional">(optional)</span></label>
+          <input type="text" id="physician_name" name="Physician Name and Phone">
+        </div>
+        <div>
+          <label for="blood_type">Blood type <span class="optional">(optional)</span></label>
+          <input type="text" id="blood_type" name="Blood Type">
+        </div>
+      </div>
+    </div>
+
+    <!-- Climbing Experience -->
+    <div class="section-card">
+      <span class="section-num">Section 3 of 4</span>
+      <h2>Climbing Experience Self-Assessment</h2>
+      <p class="section-note">Helps us group participants sensibly within the guide-to-climber ratio.</p>
+
+      <div class="field-row two-col">
+        <div>
+          <label class="required" for="years_climbing">Years of climbing experience</label>
+          <input type="text" id="years_climbing" name="Years Climbing" placeholder="e.g. 3 years" required>
+        </div>
+        <div>
+          <label class="required">Primarily</label>
+          <fieldset class="choice-group inline">
+            <div class="choice"><input type="radio" id="ctx_indoor" name="Climbing Context" value="Indoor" required><label for="ctx_indoor">Indoor</label></div>
+            <div class="choice"><input type="radio" id="ctx_outdoor" name="Climbing Context" value="Outdoor"><label for="ctx_outdoor">Outdoor</label></div>
+            <div class="choice"><input type="radio" id="ctx_both" name="Climbing Context" value="Both"><label for="ctx_both">Both</label></div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="field-row two-col">
+        <div>
+          <label for="grade_toprope">Highest grade comfortably top-roped</label>
+          <input type="text" id="grade_toprope" name="Highest Grade Top-Roped" placeholder="e.g. 5.9">
+        </div>
+        <div>
+          <label for="grade_lead">Highest grade comfortably led <span class="optional">(N/A if non-leader)</span></label>
+          <input type="text" id="grade_lead" name="Highest Grade Led" placeholder="e.g. N/A">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <label class="required">Self-rated experience level</label>
+        <fieldset class="choice-group inline">
+          <div class="choice"><input type="radio" id="lvl_beg" name="Self-Rated Level" value="Beginner" required><label for="lvl_beg">Beginner</label></div>
+          <div class="choice"><input type="radio" id="lvl_int" name="Self-Rated Level" value="Intermediate"><label for="lvl_int">Intermediate</label></div>
+          <div class="choice"><input type="radio" id="lvl_adv" name="Self-Rated Level" value="Advanced"><label for="lvl_adv">Advanced</label></div>
+        </fieldset>
+      </div>
+
+      <div class="field-row">
+        <label>Familiar with <span class="optional">(check all that apply)</span></label>
+        <fieldset class="choice-group inline">
+          <div class="choice"><input type="checkbox" id="sk_belay" name="Skills[]" value="Belaying"><label for="sk_belay">Belaying</label></div>
+          <div class="choice"><input type="checkbox" id="sk_rappel" name="Skills[]" value="Rappelling"><label for="sk_rappel">Rappelling</label></div>
+          <div class="choice"><input type="checkbox" id="sk_multipitch" name="Skills[]" value="Multi-pitch systems"><label for="sk_multipitch">Multi-pitch systems</label></div>
+          <div class="choice"><input type="checkbox" id="sk_anchor" name="Skills[]" value="Anchor building"><label for="sk_anchor">Anchor building</label></div>
+          <div class="choice"><input type="checkbox" id="sk_lead" name="Skills[]" value="Lead climbing"><label for="sk_lead">Lead climbing</label></div>
+        </fieldset>
+      </div>
+
+      <div class="field-row">
+        <label>Any past climbing-related injuries? <span class="optional">(if yes, describe)</span></label>
+        <fieldset class="choice-group inline">
+          <div class="choice"><input type="radio" id="injury_yes" name="Past Climbing Injuries" value="Yes"><label for="injury_yes">Yes</label></div>
+          <div class="choice"><input type="radio" id="injury_no" name="Past Climbing Injuries" value="No"><label for="injury_no">No</label></div>
+        </fieldset>
+        <textarea style="margin-top:10px" id="injury_describe" name="Injury Details" placeholder="Describe if yes"></textarea>
+      </div>
+
+      <div class="field-row">
+        <label class="required">Comfort level with heights / exposure</label>
+        <fieldset class="choice-group inline">
+          <div class="choice"><input type="radio" id="exp_low" name="Exposure Comfort" value="Low" required><label for="exp_low">Low</label></div>
+          <div class="choice"><input type="radio" id="exp_med" name="Exposure Comfort" value="Medium"><label for="exp_med">Medium</label></div>
+          <div class="choice"><input type="radio" id="exp_high" name="Exposure Comfort" value="High"><label for="exp_high">High</label></div>
+        </fieldset>
+      </div>
+
+      <div class="field-row">
+        <label>Prior exposure to Rock Warrior's Way or similar mental-training frameworks? <span class="optional">(optional)</span></label>
+        <textarea id="rww_exposure" name="RWW Prior Exposure"></textarea>
+      </div>
+
+      <div class="field-row">
+        <label>What are you hoping to get out of this program? <span class="optional">(optional)</span></label>
+        <textarea id="goals" name="Program Goals"></textarea>
+      </div>
+    </div>
+
+    <!-- Photo & Media Release -->
+    <div class="section-card">
+      <span class="section-num">Section 4 of 4</span>
+      <h2>Photo &amp; Media Release</h2>
+      <p class="section-note">Straydog Guiding may take photos or video during this program for use on our website and social media, at no compensation to participants. You can change your answer at any time by emailing j.morecowbell@gmail.com — note that photos or footage already published may not be able to be recalled.</p>
+      <div class="field-row">
+        <fieldset class="choice-group">
+          <div class="choice"><input type="radio" id="media_yes" name="Media Release" value="Grants permission" required><label for="media_yes">I grant Straydog Guiding permission to use photos/video of me taken during this program for marketing purposes.</label></div>
+          <div class="choice"><input type="radio" id="media_no" name="Media Release" value="Declines"><label for="media_no">I do not wish to be photographed or filmed during this program.</label></div>
+        </fieldset>
+      </div>
+    </div>
+
+    <!-- Attestation -->
+    <div class="section-card">
+      <span class="section-num">Final Step</span>
+      <h2>Certify &amp; Submit</h2>
+      <div class="attest">
+        I certify that the information provided above is accurate and complete to the best of my knowledge. I understand that Straydog Guiding relies on this information to plan a safe activity, and that omitting or misrepresenting relevant health information may affect my safety and the safety of others. This form does not replace the Straydog Guiding Participant Waiver, which I will also sign separately before participating. By typing my name below, I agree this constitutes my electronic signature and has the same legal effect as a handwritten signature.
+      </div>
+      <div class="field-row two-col">
+        <div>
+          <label class="required" for="signature">Typed signature (full legal name)</label>
+          <input type="text" id="signature" name="Signature" required>
+        </div>
+        <div>
+          <label class="required" for="sig_date">Date</label>
+          <input type="date" id="sig_date" name="Date Signed" required>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit">Submit Onboarding Form</button>
+        <span class="submit-note">Questions? Email j.morecowbell@gmail.com</span>
+      </div>
+    </div>
+  </form>
+
+  <footer>
+    <div class="wrap">
+      Straydog Guiding — a DBA of Straydog Labs LLC · Franklin, Tennessee
+    </div>
+  </footer>
+
+</body>
+</html>

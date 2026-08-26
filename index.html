@@ -1,0 +1,391 @@
+<title>Straydog Guiding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Tokens ---------- */
+  :root{
+    --ink:#1B2420;
+    --chalk:#EFEBDD;
+    --surface:#FBF8EF;
+    --sandstone:#B5642B;
+    --rust:#833A22;
+    --moss:#5B6E4C;
+    --muted:#5E6B60;
+    --border:rgba(27,36,32,0.14);
+    --shadow:rgba(27,36,32,0.10);
+
+    --bg:var(--chalk);
+    --card:var(--surface);
+    --text:var(--ink);
+    --text-muted:var(--muted);
+    --accent:var(--sandstone);
+    --accent-strong:var(--rust);
+    --accent-2:var(--moss);
+    --line:var(--border);
+
+    --display:"Fraunces", Georgia, "Times New Roman", serif;
+    --body:"Archivo", -apple-system, "Segoe UI", sans-serif;
+    --mono:"IBM Plex Mono", "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#161F19;
+      --card:#1E2A22;
+      --text:#EDE8D8;
+      --text-muted:#9FAB9C;
+      --accent:#DA8A4C;
+      --accent-strong:#E7A876;
+      --accent-2:#8FAA7B;
+      --line:rgba(237,232,216,0.14);
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161F19;
+    --card:#1E2A22;
+    --text:#EDE8D8;
+    --text-muted:#9FAB9C;
+    --accent:#DA8A4C;
+    --accent-strong:#E7A876;
+    --accent-2:#8FAA7B;
+    --line:rgba(237,232,216,0.14);
+    --shadow:rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:var(--display);font-weight:800;text-wrap:balance;margin:0;letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+  }
+  .rule{border:none;border-top:1px solid var(--line);margin:0;}
+  section{padding:88px 0;}
+  @media (max-width:640px){ section{padding:56px 0;} }
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1080px;margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .wordmark{
+    font-family:var(--display);font-weight:800;font-size:1.05rem;
+    letter-spacing:0.01em;text-decoration:none;white-space:nowrap;
+  }
+  .wordmark em{font-style:normal;color:var(--accent-strong);}
+  nav.links{display:flex;gap:28px;font-size:0.92rem;}
+  nav.links a{text-decoration:none;color:var(--text-muted);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
+  nav.links a:hover{color:var(--text);border-color:var(--accent);}
+  .nav-cta{
+    font-family:var(--mono);font-size:0.78rem;letter-spacing:0.04em;
+    text-decoration:none;color:var(--bg);background:var(--accent-strong);
+    padding:9px 16px;border-radius:3px;white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--sandstone);}
+  @media (max-width:760px){ nav.links{display:none;} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:100px 0 72px;
+    position:relative;
+    overflow:hidden;
+  }
+  .ridgeline{position:absolute;left:0;right:0;bottom:0;height:180px;opacity:0.55;pointer-events:none;}
+  .hero-inner{position:relative;max-width:760px;}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.03;margin-top:14px;}
+  .hero h1 .accent{color:var(--accent-strong);}
+  .hero p.lede{
+    font-size:1.18rem;color:var(--text-muted);max-width:560px;margin-top:22px;
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:0.96rem;
+    text-decoration:none;padding:13px 24px;border-radius:3px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s, background .15s, color .15s, border-color .15s;
+  }
+  .btn-primary{background:var(--accent-strong);color:var(--bg);}
+  .btn-primary:hover{background:var(--sandstone);transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-strong);}
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;grid-template-columns:1.1fr 1.4fr;gap:56px;align-items:start;
+  }
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;gap:32px;} }
+  .about-grid h2{font-size:clamp(1.8rem,3.4vw,2.4rem);}
+  .stat-list{display:flex;flex-direction:column;gap:18px;}
+  .stat{border-top:1px solid var(--line);padding-top:12px;}
+  .stat .num{font-family:var(--mono);font-size:1.5rem;color:var(--accent-strong);}
+  .stat .label{font-size:0.85rem;color:var(--text-muted);margin-top:2px;}
+
+  /* ---------- Services ---------- */
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:10px;}
+  .services-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:2px;
+    background:var(--line);border:1px solid var(--line);
+  }
+  @media (max-width:760px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{
+    background:var(--card);padding:34px 32px;display:flex;flex-direction:column;gap:14px;
+  }
+  .service-card .tag{
+    font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--accent-2);
+  }
+  .service-card h3{font-size:1.5rem;font-weight:700;}
+  .service-card p{color:var(--text-muted);font-size:0.98rem;margin:0;}
+  .service-price{
+    font-family:var(--mono);font-size:0.86rem;color:var(--text);
+    border-top:1px solid var(--line);padding-top:14px;margin-top:auto;
+    font-variant-numeric:tabular-nums;
+  }
+  .service-price .cta-link{
+    display:inline-block;margin-top:10px;font-family:var(--body);font-weight:600;
+    color:var(--accent-strong);text-decoration:none;
+  }
+  .service-price .cta-link:hover{text-decoration:underline;}
+
+  /* ---------- Method ---------- */
+  .method{
+    background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .method-grid{display:grid;grid-template-columns:0.9fr 1.4fr;gap:56px;}
+  @media (max-width:760px){ .method-grid{grid-template-columns:1fr;gap:28px;} }
+  .method h2{font-size:clamp(1.9rem,3.6vw,2.6rem);}
+  .method-list{display:flex;flex-direction:column;gap:26px;}
+  .method-item{display:flex;gap:18px;}
+  .method-item .mark{
+    font-family:var(--mono);color:var(--accent-strong);font-size:0.85rem;padding-top:4px;flex-shrink:0;
+  }
+  .method-item h4{font-family:var(--body);font-weight:700;font-size:1.05rem;margin:0 0 4px;}
+  .method-item p{margin:0;color:var(--text-muted);font-size:0.96rem;}
+
+  /* ---------- Booking ---------- */
+  .book-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px;}
+  @media (max-width:760px){ .book-steps{grid-template-columns:1fr;} }
+  .book-step .num{font-family:var(--mono);color:var(--accent-strong);font-size:0.95rem;}
+  .book-step h4{font-family:var(--body);font-weight:700;font-size:1.1rem;margin:10px 0 6px;}
+  .book-step p{color:var(--text-muted);font-size:0.94rem;margin:0;}
+  .book-cta{
+    margin-top:48px;padding:32px;border:1px solid var(--line);border-radius:4px;
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;
+    background:var(--card);
+  }
+  .book-cta p{margin:0;color:var(--text-muted);font-size:0.92rem;max-width:380px;}
+  .book-cta strong{color:var(--text);display:block;font-family:var(--display);font-size:1.2rem;font-weight:700;margin-bottom:6px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:48px 0;border-top:1px solid var(--line);}
+  .footer-inner{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    font-size:0.86rem;color:var(--text-muted);
+  }
+  .footer-inner a{text-decoration:underline;text-decoration-color:var(--line);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">STRAYDOG <em>GUIDING</em></a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#method">Method</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="nav-cta" href="#book">Schedule a Call</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="ridgeline" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="0,160 90,120 180,150 260,90 340,140 420,70 520,130 610,60 700,120 800,80 900,140 1000,100 1100,150 1200,110 1200,200 0,200"
+        fill="none" stroke="var(--accent-2)" stroke-width="1.5" opacity="0.5"/>
+      <polygon points="0,180 100,140 200,170 300,120 400,160 500,110 600,150 700,100 800,145 900,115 1000,155 1100,130 1200,165 1200,200 0,200"
+        fill="var(--accent-2)" opacity="0.15"/>
+    </svg>
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Franklin, Tennessee — Guiding Nationally</div>
+      <h1>Climbing is<br>the easy part<span class="accent">.</span></h1>
+      <p class="lede">The harder work happens on lead — mid-clip, heart rate climbing, one bad thought from a bail. Straydog Guiding trains that part, one climber, one gym, one company, or one crew at a time.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#book">Schedule a Consultation</a>
+        <a class="btn btn-ghost" href="#services">See Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow">Who's Guiding</div>
+        <h2>Eighteen years coaching athletes. Eight years aimed at the rock.</h2>
+        <p style="color:var(--text-muted);margin-top:18px;">
+          John Campbell holds a B.S. in Exercise Science with a minor in Psychology, and has coached athletes for 18 years — the last 8 coaching climbers specifically, and the last 7 working within the Rock Warrior's Way mental-training framework. Straydog Guiding is a DBA of Straydog Labs LLC, based in Franklin, Tennessee, and built to work with climbers and organizations nationally — not tied to one crag or one region.
+        </p>
+        <p style="color:var(--text-muted);margin-top:14px;">
+          In practice, that looks like a climber stopping mid-route, closing her eyes, breathing, humming — resetting a spiking heart rate before the next clip, instead of forcing through it. It looks like being "allowed to learn" on a project instead of needing to flash every attempt. Technique and mindset, trained together, on purpose.
+        </p>
+      </div>
+      <div class="stat-list">
+        <div class="stat"><div class="num">18 yrs</div><div class="label">Coaching athletes, since 2008</div></div>
+        <div class="stat"><div class="num">8 yrs</div><div class="label">Coaching climbers specifically, since 2018</div></div>
+        <div class="stat"><div class="num">SPI · WFA · CPR</div><div class="label">AMGA Single Pitch Instructor, Wilderness First Aid &amp; CPR/First Aid certified</div></div>
+        <div class="stat"><div class="num">1:6</div><div class="label">Guide-to-climber ratio, held on every clinic</div></div>
+        <div class="stat"><div class="num">TN → US</div><div class="label">Home base in Franklin, TN — clinics run nationally</div></div>
+        <div class="stat"><div class="num">4</div><div class="label">Program types: personal, small-group, corporate, veteran &amp; nonprofit</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Programs</div>
+        <h2>Four ways to work together.</h2>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;max-width:1080px;">
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="tag">Personal Coaching</div>
+          <h3>One-on-one, in the gym or outside</h3>
+          <p>For a climber working a specific project, a fear pattern on lead, or a plateau — with coaching that carries between sessions, not just during them.</p>
+          <div class="service-price">
+            In-person: $150/hr · $450 half-day · $650 full day<br>
+            Remote packages: custom, by session cadence
+            <a class="cta-link" href="#book">Schedule a consultation →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="tag">Small-Group Clinics</div>
+          <h3>Clinics for gyms &amp; climbing clubs</h3>
+          <p>Guided climbing days and multi-day clinics built around a fixed guide ratio and a real skill progression — not just a fun day out.</p>
+          <div class="service-price">
+            Starting at $650/day — final quote by group size, location &amp; duration
+            <a class="cta-link" href="#book">Request a quote →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="tag">Corporate Training</div>
+          <h3>Leadership &amp; team programs</h3>
+          <p>Guided climbing as the training ground for real communication and real trust under real consequence — not an icebreaker.</p>
+          <div class="service-price">
+            Custom quote — scoped to your team &amp; goals
+            <a class="cta-link" href="#book">Request a quote →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="tag">Veteran &amp; Nonprofit Programs</div>
+          <h3>Programming built with your mission</h3>
+          <p>Outdoor climbing programming for veteran groups and nonprofit partners, adapted to the population you serve, not a one-size clinic.</p>
+          <div class="service-price">
+            Custom quote — let's talk through your program
+            <a class="cta-link" href="#book">Start a conversation →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="method" id="method">
+    <div class="wrap method-grid">
+      <div>
+        <div class="eyebrow">The Method</div>
+        <h2>Fear is a skill.<br>Train it like one.</h2>
+      </div>
+      <div class="method-list">
+        <div class="method-item">
+          <div class="mark">01</div>
+          <div><h4>Reset before the redline</h4><p>A short, repeatable sequence — stop, breathe, reset — used the moment heart rate spikes, so the climber chooses the next move instead of reacting to fear.</p></div>
+        </div>
+        <div class="method-item">
+          <div class="mark">02</div>
+          <div><h4>Allowed to learn</h4><p>Sessions are framed around learning the move, not flashing it. Removing the pressure to send on the first try is what actually keeps climbers from tipping into panic.</p></div>
+        </div>
+        <div class="method-item">
+          <div class="mark">03</div>
+          <div><h4>Technique under pressure</h4><p>Clipping, footwork, and route-reading are trained specifically at the moments they tend to fall apart — not in isolation, away from the stress that breaks them.</p></div>
+        </div>
+        <div class="method-item">
+          <div class="mark">04</div>
+          <div><h4>A plan that holds you accountable</h4><p>Monthly goals, a set cadence, and a coach who proposes the structure instead of asking a climber to design their own accountability from scratch.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Get Started</div>
+        <h2>Book a call, get a plan built around you.</h2>
+      </div>
+      <div class="book-steps">
+        <div class="book-step">
+          <div class="num">01</div>
+          <h4>Schedule a consultation</h4>
+          <p>Tell us your goals — a project, a group, a program — and what's gotten in the way so far.</p>
+        </div>
+        <div class="book-step">
+          <div class="num">02</div>
+          <h4>Get a plan &amp; a quote</h4>
+          <p>You'll get a plan scoped to you or your group, with clear pricing before anything's booked.</p>
+        </div>
+        <div class="book-step">
+          <div class="num">03</div>
+          <h4>Confirm and climb</h4>
+          <p>Once it's booked, you'll get everything you need to show up ready — gear, location, logistics.</p>
+        </div>
+      </div>
+      <div class="book-cta">
+        <p><strong>Ready when you are.</strong>Send a note with your goals and preferred timing, and you'll hear back to set up a call.</p>
+        <a class="btn btn-primary" href="mailto:j.morecowbell@gmail.com?subject=Straydog%20Guiding%20—%20Consultation%20Request&body=Hi%20John%2C%0A%0AI'd%20like%20to%20schedule%20a%20consultation%20for%3A%0A%0AMy%20goals%3A%0APreferred%20timing%3A%0A">Email to Schedule →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Straydog Guiding — a DBA of Straydog Labs LLC · Franklin, TN · guiding nationally</div>
+    <div><a href="mailto:j.morecowbell@gmail.com">j.morecowbell@gmail.com</a></div>
+  </div>
+</footer>
