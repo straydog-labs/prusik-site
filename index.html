@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:opsz,wght@14..144,500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:opsz,wght@14..144,500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#2A241D;
@@ -25,6 +25,7 @@
     --deep:#8C5A2E;
     --line:rgba(42,36,29,0.14);
     --shadow:rgba(42,36,29,0.08);
+    --mark:#a8562f;
 
     --bg:var(--chalk);
     --card:var(--surface);
@@ -33,6 +34,7 @@
     --accent:var(--sandstone);
     --accent-strong:var(--deep);
     --accent-2:var(--taupe);
+    --chapter-tint:color-mix(in srgb, var(--stone) 26%, var(--chalk));
 
     --display:"Bitter", Georgia, "Times New Roman", serif;
     --body:"Archivo", -apple-system, "Segoe UI", sans-serif;
@@ -67,20 +69,29 @@
     border-bottom:1px solid var(--line);
   }
   .header-inner{
-    max-width:1080px;margin:0 auto;padding:18px 28px;
+    max-width:1080px;margin:0 auto;padding:32px 28px 36px;
     display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
   }
   .brand{text-decoration:none;display:block;}
   .brand .wordmark{
-    font-family:var(--display);font-weight:700;font-size:1.7rem;
-    letter-spacing:0.04em;line-height:1;
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(2.55rem, 4.2vw, 3.2rem);
+    letter-spacing:0.08em;
+    line-height:0.92;
   }
   .brand .subtitle{
-    font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;
-    text-transform:uppercase;color:var(--text-muted);margin-top:6px;
+    font-family:var(--mono);
+    font-size:0.66rem;
+    font-weight:500;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    margin-top:14px;
   }
   nav.jump{
     display:flex;flex-wrap:wrap;gap:8px 22px;font-size:0.92rem;
+    padding-bottom:6px;
   }
   nav.jump a{
     text-decoration:none;color:var(--text-muted);
@@ -89,14 +100,25 @@
   }
   nav.jump a:hover{color:var(--text);border-color:var(--accent);}
   @media (max-width:720px){
-    .header-inner{flex-direction:column;align-items:flex-start;gap:14px;padding:16px 20px;}
-    nav.jump{gap:8px 18px;font-size:0.88rem;}
+    .header-inner{flex-direction:column;align-items:flex-start;gap:20px;padding:26px 20px 28px;}
+    nav.jump{gap:8px 18px;font-size:0.88rem;padding-bottom:0;}
   }
 
-  section{padding:88px 0;}
-  @media (max-width:640px){ section{padding:56px 0;} }
-  .section-head{margin-bottom:40px;}
-  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:10px;}
+  section{padding:120px 0;}
+  @media (max-width:640px){ section{padding:84px 0;} }
+  .section-head{margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:12px;}
+
+  #services{background:var(--chapter-tint);}
+  #method{background:var(--bg);padding:0;}
+  #credentials{background:var(--chapter-tint);}
+  #about{background:var(--bg);}
+
+  #method,
+  #credentials,
+  #about{
+    border-top:1px solid var(--mark);
+  }
 
   .services-grid{
     display:grid;grid-template-columns:repeat(2,1fr);gap:2px;
@@ -105,53 +127,132 @@
   @media (max-width:760px){ .services-grid{grid-template-columns:1fr;} }
   .service-card{
     background:var(--card);padding:32px 28px;
-    display:flex;flex-direction:column;gap:12px;
+    display:flex;flex-direction:column;gap:10px;
   }
-  .service-card h3{font-size:1.45rem;}
-  .service-card p{color:var(--text-muted);font-size:0.96rem;margin:0;}
+  .service-card h3{
+    font-size:1.18rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .service-card > p{color:var(--text-muted);font-size:0.92rem;margin:0;line-height:1.5;}
   .service-price{
-    font-family:var(--mono);font-size:0.84rem;color:var(--text);
-    font-variant-numeric:tabular-nums;line-height:1.65;
-    border-top:1px solid var(--line);padding-top:14px;margin-top:auto;
+    border-top:1px solid var(--line);
+    padding-top:22px;
+    margin-top:auto;
+  }
+  .price-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px 18px;
+  }
+  @media (max-width:480px){
+    .price-grid{grid-template-columns:1fr;gap:18px;}
+  }
+  .price-amt{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(2.15rem, 3.4vw, 2.7rem);
+    line-height:0.95;
+    letter-spacing:-0.02em;
+    color:var(--mark);
+    font-variant-numeric:tabular-nums;
+    font-feature-settings:"tnum" 1;
+  }
+  .price-amt.contact{
+    font-size:clamp(1.55rem, 2.6vw, 1.95rem);
+    line-height:1.12;
+    letter-spacing:-0.015em;
+  }
+  .price-cap{
+    font-family:var(--mono);
+    font-size:0.64rem;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    margin-top:8px;
+    line-height:1.45;
+  }
+  .price-note{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    letter-spacing:0.06em;
+    color:var(--text-muted);
+    margin-top:18px;
+    line-height:1.55;
   }
   .service-price a{
-    display:inline-block;margin-top:10px;font-family:var(--body);font-weight:600;
+    display:inline-block;margin-top:18px;font-family:var(--body);font-weight:600;
     color:var(--accent-strong);text-decoration:none;
   }
   .service-price a:hover{text-decoration:underline;}
 
+  .method-intro{
+    padding-top:120px;
+    padding-bottom:56px;
+  }
+  .method-intro .section-head{margin-bottom:0;}
   .method-band{
-    padding:72px 0;
+    padding:108px 0 116px;
+  }
+  .method-band + .method-band{
     border-top:1px solid var(--line);
   }
-  .method-band:last-child{border-bottom:1px solid var(--line);}
   .method-band.alt{background:var(--card);}
   .method-band h3{
-    font-size:clamp(2rem,4.4vw,3.2rem);
-    line-height:1.08;
-    max-width:16ch;
+    font-size:clamp(2.7rem, 7.2vw, 4.85rem);
+    font-weight:800;
+    line-height:0.98;
+    letter-spacing:-0.025em;
+    max-width:14ch;
   }
   .method-band p{
     color:var(--text-muted);
     font-size:1.08rem;
     max-width:38rem;
-    margin:16px 0 0;
+    margin:32px 0 0;
+    line-height:1.6;
   }
   .method-kicker{
-    font-family:var(--mono);font-size:0.72rem;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--accent-strong);margin-bottom:14px;
+    font-family:var(--mono);font-size:0.72rem;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--accent-strong);margin-bottom:22px;
+  }
+  @media (max-width:640px){
+    .method-intro{padding-top:84px;padding-bottom:40px;}
+    .method-band{padding:80px 0 88px;}
   }
 
   .badges{
-    display:flex;flex-wrap:wrap;gap:14px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:stretch;
+    gap:0;
   }
   .badge{
-    font-family:var(--mono);font-size:0.92rem;letter-spacing:0.08em;
+    font-family:var(--mono);
+    font-size:0.78rem;
+    font-weight:500;
+    letter-spacing:0.18em;
     text-transform:uppercase;
-    border:1px solid var(--line);
-    background:var(--card);
-    padding:16px 22px;
     color:var(--text);
+    background:transparent;
+    border:0;
+    border-bottom:1.5px solid var(--mark);
+    padding:6px 0 10px;
+    line-height:1.2;
+  }
+  .badge + .badge{
+    margin-left:28px;
+    padding-left:28px;
+    border-left:1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+  }
+  @media (max-width:560px){
+    .badges{flex-direction:column;align-items:flex-start;gap:22px;}
+    .badge + .badge{
+      margin-left:0;
+      padding-left:0;
+      border-left:0;
+    }
   }
 
   .about-book{
@@ -215,8 +316,24 @@
           <h3>Guided Climbing Day</h3>
           <p>Walk-up guiding for one or two climbers. Half-day up to 3 hours; full day up to 6.</p>
           <div class="service-price">
-            Half-day: $250 for 1 climber, $350 for 2<br>
-            Full day: $450 for 1 climber, $600 for 2<br>
+            <div class="price-grid">
+              <div class="price-item">
+                <div class="price-amt">$250</div>
+                <div class="price-cap">Half-day for 1 climber</div>
+              </div>
+              <div class="price-item">
+                <div class="price-amt">$350</div>
+                <div class="price-cap">Half-day for 2</div>
+              </div>
+              <div class="price-item">
+                <div class="price-amt">$450</div>
+                <div class="price-cap">Full day for 1 climber</div>
+              </div>
+              <div class="price-item">
+                <div class="price-amt">$600</div>
+                <div class="price-cap">Full day for 2</div>
+              </div>
+            </div>
             <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Guided%20Climbing%20Day">Email to book</a>
           </div>
         </article>
@@ -225,8 +342,17 @@
           <h3>Personal Coaching</h3>
           <p>For individuals or climbing partners. Mixed remote and in-person.</p>
           <div class="service-price">
-            In-person: $300 half-day / $500 full day<br>
-            Remote: contact for pricing — free intro call for remote sessions<br>
+            <div class="price-grid">
+              <div class="price-item">
+                <div class="price-amt">$300</div>
+                <div class="price-cap">In-person half-day</div>
+              </div>
+              <div class="price-item">
+                <div class="price-amt">$500</div>
+                <div class="price-cap">In-person full day</div>
+              </div>
+            </div>
+            <p class="price-note">Remote: contact for pricing — free intro call for remote sessions</p>
             <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Personal%20Coaching">Email to book</a>
           </div>
         </article>
@@ -235,7 +361,7 @@
           <h3>Corporate Training</h3>
           <p>Team programs on the rock, scoped to your people and your goals.</p>
           <div class="service-price">
-            Contact for pricing<br>
+            <div class="price-amt contact">Contact for pricing</div>
             <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Corporate%20Training">Email to inquire</a>
           </div>
         </article>
@@ -244,7 +370,7 @@
           <h3>Veteran &amp; Nonprofit</h3>
           <p>Programming built with the population you serve, not a one-size clinic.</p>
           <div class="service-price">
-            Contact for pricing<br>
+            <div class="price-amt contact">Contact for pricing</div>
             <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Veteran%20%26%20Nonprofit">Email to inquire</a>
           </div>
         </article>
@@ -253,9 +379,9 @@
     </div>
   </section>
 
-  <section id="method" style="padding:0;">
-    <div class="wrap" style="padding-top:88px;padding-bottom:40px;">
-      <div class="section-head" style="margin-bottom:0;">
+  <section id="method">
+    <div class="wrap method-intro">
+      <div class="section-head">
         <div class="eyebrow">Why this is different</div>
         <h2>The Method</h2>
       </div>
