@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prusik</title>
-<meta name="description" content="Prusik — climbing coaching that meets you at your edge. Guided days, personal coaching, clinics, corporate, and veteran &amp; nonprofit programs. Franklin, Tennessee, guiding nationally.">
+<title>Prusik — Guiding &amp; Coaching</title>
+<meta name="description" content="Prusik — guiding and coaching from Leipers Fork, TN. Guided climbing days, personal coaching, corporate training, and veteran &amp; nonprofit programs.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:opsz,wght@14..144,500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -45,7 +50,6 @@
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;}
-  img,svg{max-width:100%;display:block;}
   .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
   h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;letter-spacing:-0.015em;}
   .eyebrow{
@@ -55,146 +59,121 @@
     text-transform:uppercase;
     color:var(--accent-strong);
   }
-  .rule{border:none;border-top:1px solid var(--line);margin:0;}
-  section{padding:88px 0;}
-  @media (max-width:640px){ section{padding:56px 0;} }
 
-  header.nav{
+  header.site-header{
     position:sticky;top:0;z-index:20;
-    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    background:color-mix(in srgb, var(--bg) 90%, transparent);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
-  .nav-inner{
-    max-width:1080px;margin:0 auto;padding:16px 28px;
-    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  .header-inner{
+    max-width:1080px;margin:0 auto;padding:18px 28px;
+    display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
   }
-  .wordmark{
-    font-family:var(--display);font-weight:700;font-size:1.15rem;
-    letter-spacing:0.04em;text-decoration:none;white-space:nowrap;
+  .brand{text-decoration:none;display:block;}
+  .brand .wordmark{
+    font-family:var(--display);font-weight:700;font-size:1.7rem;
+    letter-spacing:0.04em;line-height:1;
   }
-  nav.links{display:flex;gap:28px;font-size:0.92rem;}
-  nav.links a{text-decoration:none;color:var(--text-muted);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
-  nav.links a:hover{color:var(--text);border-color:var(--accent);}
-  .nav-cta{
-    font-family:var(--mono);font-size:0.78rem;letter-spacing:0.04em;
-    text-decoration:none;color:var(--bg);background:var(--accent-strong);
-    padding:9px 16px;border-radius:3px;white-space:nowrap;
+  .brand .subtitle{
+    font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--text-muted);margin-top:6px;
   }
-  .nav-cta:hover{background:var(--sandstone);}
-  @media (max-width:760px){ nav.links{display:none;} }
-
-  .hero{
-    padding:92px 0 72px;
-    position:relative;
+  nav.jump{
+    display:flex;flex-wrap:wrap;gap:8px 22px;font-size:0.92rem;
   }
-  .hero-grid{
-    display:grid;grid-template-columns:1.3fr 0.7fr;gap:48px;align-items:center;
+  nav.jump a{
+    text-decoration:none;color:var(--text-muted);
+    border-bottom:1px solid transparent;padding-bottom:2px;
+    transition:color .15s, border-color .15s;
   }
-  @media (max-width:800px){ .hero-grid{grid-template-columns:1fr;gap:36px;} }
-  .hero h1{font-size:clamp(2.5rem,6vw,4.2rem);line-height:1.05;margin-top:14px;}
-  .hero p.lede{
-    font-size:1.12rem;color:var(--text-muted);max-width:540px;margin-top:22px;
-  }
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
-  .btn{
-    font-family:var(--body);font-weight:600;font-size:0.96rem;
-    text-decoration:none;padding:13px 24px;border-radius:3px;
-    display:inline-flex;align-items:center;gap:8px;
-    transition:transform .15s, background .15s, color .15s, border-color .15s;
-  }
-  .btn-primary{background:var(--accent-strong);color:var(--bg);}
-  .btn-primary:hover{background:var(--sandstone);transform:translateY(-1px);}
-  .btn-ghost{border:1px solid var(--line);color:var(--text);}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-strong);}
-
-  .hitch{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:22px 20px 18px;
-    box-shadow:0 1px 2px var(--shadow);
-  }
-  .hitch svg{margin:0 auto;}
-  .hitch figcaption{
-    font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--text-muted);text-align:center;margin-top:12px;
+  nav.jump a:hover{color:var(--text);border-color:var(--accent);}
+  @media (max-width:720px){
+    .header-inner{flex-direction:column;align-items:flex-start;gap:14px;padding:16px 20px;}
+    nav.jump{gap:8px 18px;font-size:0.88rem;}
   }
 
-  .start-grid{
+  section{padding:88px 0;}
+  @media (max-width:640px){ section{padding:56px 0;} }
+  .section-head{margin-bottom:40px;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:10px;}
+
+  .services-grid{
     display:grid;grid-template-columns:repeat(2,1fr);gap:2px;
     background:var(--line);border:1px solid var(--line);
   }
-  @media (max-width:760px){ .start-grid{grid-template-columns:1fr;} }
-  .start-card{
-    background:var(--card);padding:28px 26px;
+  @media (max-width:760px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{
+    background:var(--card);padding:32px 28px;
+    display:flex;flex-direction:column;gap:12px;
   }
-  .start-card h3{font-size:1.28rem;font-weight:700;margin-top:8px;}
-  .start-card p{color:var(--text-muted);font-size:0.96rem;margin:10px 0 0;}
-
-  .section-head{max-width:640px;margin-bottom:48px;}
-  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:10px;}
-
-  .services-list{display:flex;flex-direction:column;gap:2px;background:var(--line);border:1px solid var(--line);}
-  .service-row{
-    background:var(--card);padding:28px 30px;
-    display:grid;grid-template-columns:1.1fr 1.4fr;gap:28px;align-items:start;
-  }
-  @media (max-width:760px){ .service-row{grid-template-columns:1fr;gap:12px;padding:24px;} }
-  .service-row .tag{
-    font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--accent-2);
-  }
-  .service-row h3{font-size:1.4rem;font-weight:700;margin-top:6px;}
-  .service-row p{color:var(--text-muted);font-size:0.96rem;margin:8px 0 0;}
+  .service-card h3{font-size:1.45rem;}
+  .service-card p{color:var(--text-muted);font-size:0.96rem;margin:0;}
   .service-price{
     font-family:var(--mono);font-size:0.84rem;color:var(--text);
-    font-variant-numeric:tabular-nums;line-height:1.6;
+    font-variant-numeric:tabular-nums;line-height:1.65;
+    border-top:1px solid var(--line);padding-top:14px;margin-top:auto;
   }
-  .service-price .cta-link{
+  .service-price a{
     display:inline-block;margin-top:10px;font-family:var(--body);font-weight:600;
     color:var(--accent-strong);text-decoration:none;
   }
-  .service-price .cta-link:hover{text-decoration:underline;}
+  .service-price a:hover{text-decoration:underline;}
 
-  .about-grid{
-    display:grid;grid-template-columns:1.1fr 1.4fr;gap:56px;align-items:start;
+  .method-band{
+    padding:72px 0;
+    border-top:1px solid var(--line);
   }
-  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;gap:32px;} }
-  .about-grid h2{font-size:clamp(1.8rem,3.4vw,2.4rem);}
-  .stat-list{display:flex;flex-direction:column;gap:18px;}
-  .stat{border-top:1px solid var(--line);padding-top:12px;}
-  .stat .num{font-family:var(--mono);font-size:1.5rem;color:var(--accent-strong);}
-  .stat .label{font-size:0.85rem;color:var(--text-muted);margin-top:2px;}
+  .method-band:last-child{border-bottom:1px solid var(--line);}
+  .method-band.alt{background:var(--card);}
+  .method-band h3{
+    font-size:clamp(2rem,4.4vw,3.2rem);
+    line-height:1.08;
+    max-width:16ch;
+  }
+  .method-band p{
+    color:var(--text-muted);
+    font-size:1.08rem;
+    max-width:38rem;
+    margin:16px 0 0;
+  }
+  .method-kicker{
+    font-family:var(--mono);font-size:0.72rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--accent-strong);margin-bottom:14px;
+  }
 
-  .method{
-    background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  .badges{
+    display:flex;flex-wrap:wrap;gap:14px;
   }
-  .method-grid{display:grid;grid-template-columns:0.9fr 1.4fr;gap:56px;}
-  @media (max-width:760px){ .method-grid{grid-template-columns:1fr;gap:28px;} }
-  .method h2{font-size:clamp(1.9rem,3.6vw,2.6rem);}
-  .method-list{display:flex;flex-direction:column;gap:26px;}
-  .method-item{display:flex;gap:18px;}
-  .method-item .mark{
-    font-family:var(--mono);color:var(--accent-strong);font-size:0.85rem;padding-top:4px;flex-shrink:0;
-  }
-  .method-item h4{font-family:var(--body);font-weight:700;font-size:1.05rem;margin:0 0 4px;}
-  .method-item p{margin:0;color:var(--text-muted);font-size:0.96rem;}
-
-  .book-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px;}
-  @media (max-width:760px){ .book-steps{grid-template-columns:1fr;} }
-  .book-step .num{font-family:var(--mono);color:var(--accent-strong);font-size:0.95rem;}
-  .book-step h4{font-family:var(--body);font-weight:700;font-size:1.1rem;margin:10px 0 6px;}
-  .book-step p{color:var(--text-muted);font-size:0.94rem;margin:0;}
-  .book-cta{
-    margin-top:48px;padding:32px;border:1px solid var(--line);border-radius:4px;
-    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;
+  .badge{
+    font-family:var(--mono);font-size:0.92rem;letter-spacing:0.08em;
+    text-transform:uppercase;
+    border:1px solid var(--line);
     background:var(--card);
+    padding:16px 22px;
+    color:var(--text);
   }
-  .book-cta p{margin:0;color:var(--text-muted);font-size:0.92rem;max-width:380px;}
-  .book-cta strong{color:var(--text);display:block;font-family:var(--display);font-size:1.2rem;font-weight:700;margin-bottom:6px;}
 
-  footer{padding:48px 0;border-top:1px solid var(--line);}
+  .about-book{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:end;
+  }
+  @media (max-width:760px){ .about-book{grid-template-columns:1fr;gap:28px;} }
+  .about-book h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:10px;}
+  .about-copy{font-size:1.15rem;margin-top:18px;max-width:28rem;}
+  .about-loc{color:var(--text-muted);margin-top:10px;font-size:0.95rem;}
+  .book-box{
+    background:var(--card);border:1px solid var(--line);padding:28px 26px;
+  }
+  .book-box p{margin:0 0 18px;color:var(--text-muted);font-size:0.95rem;}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:0.96rem;
+    text-decoration:none;padding:13px 24px;border-radius:3px;
+    display:inline-flex;align-items:center;
+    background:var(--accent-strong);color:var(--bg);
+  }
+  .btn:hover{background:var(--sandstone);}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);}
   .footer-inner{
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
     font-size:0.86rem;color:var(--text-muted);
@@ -208,241 +187,128 @@
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a class="wordmark" href="#top">PRUSIK</a>
-    <nav class="links">
-      <a href="#start">Start</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <div class="wordmark">Prusik</div>
+      <div class="subtitle">Guiding &amp; Coaching</div>
+    </a>
+    <nav class="jump" aria-label="Page">
       <a href="#services">Services</a>
-      <a href="#method">Method</a>
+      <a href="#method">The Method</a>
+      <a href="#credentials">Credentials</a>
       <a href="#about">About</a>
     </nav>
-    <a class="nav-cta" href="#book">Schedule a Call</a>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">It's hard wherever your edge is.</div>
-        <h1>That's where I meet you.</h1>
-        <p class="lede">Like a prusik hitch, I hold when you need it and slide free when you don't — training toward the day you don't need me at all.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#book">Schedule a Consultation</a>
-          <a class="btn btn-ghost" href="#services">See Services →</a>
-        </div>
-      </div>
-      <figure class="hitch">
-        <svg viewBox="0 0 180 220" width="180" height="220" role="img" aria-labelledby="hitch-title hitch-desc">
-          <title id="hitch-title">Prusik hitch</title>
-          <desc id="hitch-desc">A schematic of a prusik hitch: a loop of cord wrapped around a host rope so it holds under load and slides when slack.</desc>
-          <line x1="90" y1="8" x2="90" y2="212" stroke="var(--stone)" stroke-width="7" stroke-linecap="round"/>
-          <path d="M90 58
-            C58 62 52 78 90 82
-            C128 86 134 102 90 106
-            C46 110 40 126 90 130
-            C140 134 136 148 90 152"
-            fill="none" stroke="var(--sandstone)" stroke-width="5.5" stroke-linecap="round"/>
-          <path d="M90 152 C62 168 58 186 90 198 C118 186 122 168 90 152" fill="none" stroke="var(--sandstone)" stroke-width="5.5" stroke-linejoin="round"/>
-          <circle cx="90" cy="198" r="4" fill="var(--deep)"/>
-          <text x="118" y="28" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--muted)" letter-spacing="0.08em">HOST</text>
-          <text x="118" y="108" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--deep)" letter-spacing="0.08em">WRAPS</text>
-          <text x="118" y="196" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--muted)" letter-spacing="0.08em">LOAD</text>
-        </svg>
-        <figcaption>Holds under load. Slides when slack.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <section id="start">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Wherever You're Starting</div>
-        <h2>The edge is the point. I meet you there.</h2>
-      </div>
-    </div>
-    <div class="wrap" style="padding:0;max-width:1080px;">
-      <div class="start-grid">
-        <div class="start-card">
-          <div class="eyebrow">A day on rock</div>
-          <h3>Walk up and climb</h3>
-          <p>One or two climbers, a half-day or a full day. No ongoing commitment — just a guide who holds the ratio and the plan.</p>
-        </div>
-        <div class="start-card">
-          <div class="eyebrow">A longer arc</div>
-          <h3>Personal work</h3>
-          <p>A project, a fear pattern on lead, a plateau. Coaching that carries between sessions, not just during them.</p>
-        </div>
-        <div class="start-card">
-          <div class="eyebrow">A gym or a crew</div>
-          <h3>A clinic, when it's time</h3>
-          <p>Small groups, own gear, a real skill progression — including future Rock Warrior's Way / Alma programming.</p>
-        </div>
-        <div class="start-card">
-          <div class="eyebrow">A team or a mission</div>
-          <h3>Corporate, veteran, nonprofit</h3>
-          <p>Climbing as training ground, not an icebreaker — scoped to the people you serve.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
   <section id="services">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">Programs</div>
-        <h2>Five ways to work together.</h2>
+        <div class="eyebrow">Work together</div>
+        <h2>Services</h2>
       </div>
-    </div>
-    <div class="wrap" style="padding:0;max-width:1080px;">
-      <div class="services-list">
+      <div class="services-grid">
 
-        <div class="service-row">
-          <div>
-            <div class="tag">Guided Climbing Day</div>
-            <h3>Walk-up, 1–2 climbers</h3>
-            <p>A half-day or full day on rock. Built for one climber or a pair — no clinic, no ongoing package.</p>
-          </div>
+        <article class="service-card">
+          <h3>Guided Climbing Day</h3>
+          <p>Walk-up guiding for one or two climbers. Half-day up to 3 hours; full day up to 6.</p>
           <div class="service-price">
-            Half-day: $250 / 1 climber · $350 / 2<br>
-            Full day: $450 / 1 climber · $600 / 2
-            <a class="cta-link" href="#book">Schedule a consultation →</a>
+            Half-day: $250 for 1 climber, $350 for 2<br>
+            Full day: $450 for 1 climber, $600 for 2<br>
+            <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Guided%20Climbing%20Day">Email to book</a>
           </div>
-        </div>
+        </article>
 
-        <div class="service-row">
-          <div>
-            <div class="tag">Personal Coaching</div>
-            <h3>Ongoing 1:1 or 1:2</h3>
-            <p>A relationship, not a drop-in. For a climber working a project, a fear pattern, or a plateau — with coaching that holds between sessions.</p>
-          </div>
+        <article class="service-card">
+          <h3>Personal Coaching</h3>
+          <p>For individuals or climbing partners. Mixed remote and in-person.</p>
           <div class="service-price">
-            $300 half-day · $500 full day
-            <a class="cta-link" href="#book">Schedule a consultation →</a>
+            In-person: $300 half-day / $500 full day<br>
+            Remote: contact for pricing — free intro call for remote sessions<br>
+            <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Personal%20Coaching">Email to book</a>
           </div>
-        </div>
+        </article>
 
-        <div class="service-row">
-          <div>
-            <div class="tag">Small-Group Clinics</div>
-            <h3>Future RWW / Alma, up to 6</h3>
-            <p>Clinics for gyms and climbing clubs. Participants bring their own gear. Guide ratio held; skill progression, not just a fun day out.</p>
-          </div>
+        <article class="service-card">
+          <h3>Corporate Training</h3>
+          <p>Team programs on the rock, scoped to your people and your goals.</p>
           <div class="service-price">
-            Contact for pricing
-            <a class="cta-link" href="#book">Request a quote →</a>
+            Contact for pricing<br>
+            <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Corporate%20Training">Email to inquire</a>
           </div>
-        </div>
+        </article>
 
-        <div class="service-row">
-          <div>
-            <div class="tag">Corporate Training</div>
-            <h3>Leadership &amp; team programs</h3>
-            <p>Guided climbing as the training ground for real communication and real trust under real consequence — not an icebreaker.</p>
-          </div>
+        <article class="service-card">
+          <h3>Veteran &amp; Nonprofit</h3>
+          <p>Programming built with the population you serve, not a one-size clinic.</p>
           <div class="service-price">
-            Contact for pricing
-            <a class="cta-link" href="#book">Request a quote →</a>
+            Contact for pricing<br>
+            <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Veteran%20%26%20Nonprofit">Email to inquire</a>
           </div>
-        </div>
-
-        <div class="service-row">
-          <div>
-            <div class="tag">Veteran &amp; Nonprofit</div>
-            <h3>Programming built with your mission</h3>
-            <p>Outdoor climbing programming for veteran groups and nonprofit partners, adapted to the population you serve.</p>
-          </div>
-          <div class="service-price">
-            Contact for pricing
-            <a class="cta-link" href="#book">Start a conversation →</a>
-          </div>
-        </div>
+        </article>
 
       </div>
     </div>
   </section>
 
-  <section class="method" id="method">
-    <div class="wrap method-grid">
-      <div>
-        <div class="eyebrow">The Method</div>
-        <h2>Fear is a skill.<br>Train it like one.</h2>
+  <section id="method" style="padding:0;">
+    <div class="wrap" style="padding-top:88px;padding-bottom:40px;">
+      <div class="section-head" style="margin-bottom:0;">
+        <div class="eyebrow">Why this is different</div>
+        <h2>The Method</h2>
       </div>
-      <div class="method-list">
-        <div class="method-item">
-          <div class="mark">01</div>
-          <div><h4>Reset before the redline</h4><p>A short, repeatable sequence — stop, breathe, reset — used the moment heart rate spikes, so the climber chooses the next move instead of reacting to fear.</p></div>
-        </div>
-        <div class="method-item">
-          <div class="mark">02</div>
-          <div><h4>Allowed to learn</h4><p>Sessions are framed around learning the move, not flashing it. Removing the pressure to send on the first try is what actually keeps climbers from tipping into panic.</p></div>
-        </div>
-        <div class="method-item">
-          <div class="mark">03</div>
-          <div><h4>Technique under pressure</h4><p>Clipping, footwork, and route-reading are trained specifically at the moments they tend to fall apart — not in isolation, away from the stress that breaks them.</p></div>
-        </div>
-        <div class="method-item">
-          <div class="mark">04</div>
-          <div><h4>Hold, then slide free</h4><p>Like the hitch: support while it's needed, then less of me over time. The work is toward the day you don't need a guide at your edge at all.</p></div>
-        </div>
+    </div>
+
+    <div class="method-band">
+      <div class="wrap">
+        <div class="method-kicker">01 — Technique</div>
+        <h3>Cleaner movement, on purpose.</h3>
+        <p>We isolate the inefficient patterns — feet, hips, sequence, clip — and rebuild them so the hard moves cost less.</p>
+      </div>
+    </div>
+    <div class="method-band alt">
+      <div class="wrap">
+        <div class="method-kicker">02 — Video</div>
+        <h3>Watch the attempt, not the story of it.</h3>
+        <p>Short clips of the work, reviewed together. You see the missed foot, the rushed clip, the extra move. Then we go back and do it again.</p>
+      </div>
+    </div>
+    <div class="method-band">
+      <div class="wrap">
+        <div class="method-kicker">03 — Mental game</div>
+        <h3>Attention is a skill. Train it.</h3>
+        <p>Breath, arousal, and self-talk get coached the same way movement does — in the session, not as a pep talk after.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">On paper</div>
+        <h2>Credentials</h2>
+      </div>
+      <div class="badges">
+        <div class="badge">AMGA SPI</div>
+        <div class="badge">WFA</div>
+        <div class="badge">RWW Trainer</div>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <div class="wrap about-grid">
+    <div class="wrap about-book">
       <div>
-        <div class="eyebrow">Who's Guiding</div>
-        <h2>Eighteen years coaching athletes. Eight years aimed at the rock.</h2>
-        <p style="color:var(--text-muted);margin-top:18px;">
-          John Campbell holds a B.S. in Exercise Science with a minor in Psychology, and has coached athletes for 18 years — the last 8 coaching climbers specifically, and the last 7 working within the Rock Warrior's Way mental-training framework. Prusik is a DBA of Straydog Labs LLC, based in Franklin, Tennessee, and built to work with climbers and organizations nationally — not tied to one crag or one region.
-        </p>
-        <p style="color:var(--text-muted);margin-top:14px;">
-          In practice, that looks like a climber stopping mid-route, closing her eyes, breathing, humming — resetting a spiking heart rate before the next clip, instead of forcing through it. It looks like being "allowed to learn" on a project instead of needing to flash every attempt. Technique and mindset, trained together, on purpose.
-        </p>
+        <div class="eyebrow">About</div>
+        <h2>John</h2>
+        <p class="about-copy">John — B.S. in Exercise Science, minor in Psychology.</p>
+        <p class="about-loc">Leipers Fork, TN</p>
       </div>
-      <div class="stat-list">
-        <div class="stat"><div class="num">18 yrs</div><div class="label">Coaching athletes, since 2008</div></div>
-        <div class="stat"><div class="num">8 yrs</div><div class="label">Coaching climbers specifically, since 2018</div></div>
-        <div class="stat"><div class="num">SPI · WFA · CPR</div><div class="label">AMGA Single Pitch Instructor, Wilderness First Aid &amp; CPR/First Aid certified</div></div>
-        <div class="stat"><div class="num">1:6</div><div class="label">Guide-to-climber ratio, held on every clinic</div></div>
-        <div class="stat"><div class="num">TN → US</div><div class="label">Home base in Franklin, TN — clinics run nationally</div></div>
-        <div class="stat"><div class="num">5</div><div class="label">Program types: guided day, personal, small-group, corporate, veteran &amp; nonprofit</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="book">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Get Started</div>
-        <h2>Book a call, get a plan built around you.</h2>
-      </div>
-      <div class="book-steps">
-        <div class="book-step">
-          <div class="num">01</div>
-          <h4>Schedule a consultation</h4>
-          <p>Tell us your goals — a project, a group, a program — and what's gotten in the way so far.</p>
-        </div>
-        <div class="book-step">
-          <div class="num">02</div>
-          <h4>Get a plan &amp; a quote</h4>
-          <p>You'll get a plan scoped to you or your group, with clear pricing before anything's booked.</p>
-        </div>
-        <div class="book-step">
-          <div class="num">03</div>
-          <h4>Confirm and climb</h4>
-          <p>Once it's booked, you'll get everything you need to show up ready — gear, location, logistics.</p>
-        </div>
-      </div>
-      <div class="book-cta">
-        <p><strong>Ready when you are.</strong> Send a note with your goals and preferred timing, and you'll hear back to set up a call.</p>
-        <a class="btn btn-primary" href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Consultation%20Request&body=Hi%20John%2C%0A%0AI'd%20like%20to%20schedule%20a%20consultation%20for%3A%0A%0AMy%20goals%3A%0APreferred%20timing%3A%0A">Email to Schedule →</a>
+      <div class="book-box">
+        <p>Send a note with what you want to work on and when. You’ll hear back to set up a call.</p>
+        <a class="btn" href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Booking">Email to book</a>
       </div>
     </div>
   </section>
@@ -450,7 +316,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <div>Prusik — a DBA of Straydog Labs LLC · Franklin, TN · guiding nationally</div>
+    <div>Prusik — a DBA of Straydog Labs LLC · Leipers Fork, TN</div>
     <div><a href="mailto:j.morecowbell@gmail.com">j.morecowbell@gmail.com</a></div>
   </div>
 </footer>
