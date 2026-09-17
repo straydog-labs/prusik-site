@@ -69,7 +69,7 @@
     border-bottom:1px solid var(--line);
   }
   .header-inner{
-    max-width:1080px;margin:0 auto;padding:32px 28px 36px;
+    max-width:1080px;margin:0 auto;padding:22px 28px 20px;
     display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
   }
   .brand{text-decoration:none;display:block;}
@@ -87,11 +87,11 @@
     letter-spacing:0.22em;
     text-transform:uppercase;
     color:var(--text-muted);
-    margin-top:14px;
+    margin-top:10px;
   }
   nav.jump{
     display:flex;flex-wrap:wrap;gap:8px 22px;font-size:0.92rem;
-    padding-bottom:6px;
+    padding-bottom:4px;
   }
   nav.jump a{
     text-decoration:none;color:var(--text-muted);
@@ -100,35 +100,73 @@
   }
   nav.jump a:hover{color:var(--text);border-color:var(--accent);}
   @media (max-width:720px){
-    .header-inner{flex-direction:column;align-items:flex-start;gap:20px;padding:26px 20px 28px;}
+    .header-inner{flex-direction:column;align-items:flex-start;gap:14px;padding:18px 20px 16px;}
     nav.jump{gap:8px 18px;font-size:0.88rem;padding-bottom:0;}
   }
 
-  section{padding:120px 0;}
-  @media (max-width:640px){ section{padding:84px 0;} }
-  .section-head{margin-bottom:48px;}
-  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:12px;}
+  section{padding:64px 0;position:relative;}
+  @media (max-width:640px){ section{padding:48px 0;} }
+  .section-head{margin-bottom:28px;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:8px;}
 
-  #services{background:var(--chapter-tint);}
-  #method{background:var(--bg);padding:0;}
-  #credentials{background:var(--chapter-tint);}
-  #about{background:var(--bg);}
+  #services{background:var(--chapter-tint);overflow:hidden;}
+  #method{background:var(--bg);padding:0;overflow:hidden;}
+  #about{background:var(--chapter-tint);overflow:hidden;}
 
   #method,
-  #credentials,
   #about{
     border-top:1px solid var(--mark);
   }
 
+  /* Diagonal accent — services */
+  #services::before{
+    content:"";
+    position:absolute;
+    top:-40px;
+    right:14%;
+    width:2px;
+    height:220px;
+    background:var(--mark);
+    transform:rotate(28deg);
+    pointer-events:none;
+  }
+
+  .services-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:28px;
+  }
+  .services-head .slash{
+    width:88px;height:2px;background:var(--mark);
+    transform:rotate(-22deg);
+    margin:0 8px 18px 0;
+    flex-shrink:0;
+  }
+  @media (max-width:640px){
+    .services-head{flex-direction:column;align-items:flex-start;gap:0;}
+    .services-head .slash{margin:4px 0 16px 12px;}
+  }
+
   .services-grid{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:2px;
-    background:var(--line);border:1px solid var(--line);
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px 20px;
+    align-items:start;
   }
-  @media (max-width:760px){ .services-grid{grid-template-columns:1fr;} }
+  @media (max-width:760px){
+    .services-grid{grid-template-columns:1fr;gap:14px;}
+    .service-card{transform:none !important;margin-top:0 !important;}
+  }
   .service-card{
-    background:var(--card);padding:32px 28px;
-    display:flex;flex-direction:column;gap:10px;
+    background:var(--card);padding:24px 22px;
+    display:flex;flex-direction:column;gap:8px;
   }
+  .service-card:nth-child(1){transform:rotate(-0.6deg);}
+  .service-card:nth-child(2){margin-top:36px;transform:rotate(0.7deg);}
+  .service-card:nth-child(3){margin-top:-8px;transform:rotate(0.45deg);}
+  .service-card:nth-child(4){margin-top:28px;transform:rotate(-0.5deg);}
   .service-card h3{
     font-size:1.18rem;
     font-weight:600;
@@ -137,13 +175,13 @@
   .service-card > p{color:var(--text-muted);font-size:0.92rem;margin:0;line-height:1.5;}
   .service-price{
     border-top:1px solid var(--line);
-    padding-top:22px;
+    padding-top:16px;
     margin-top:auto;
   }
   .price-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:22px 18px;
+    gap:16px 18px;
   }
   .price-amt{
     font-family:var(--display);
@@ -175,29 +213,33 @@
     font-size:0.68rem;
     letter-spacing:0.06em;
     color:var(--text-muted);
-    margin-top:18px;
+    margin-top:14px;
     line-height:1.55;
   }
   .service-price a{
-    display:inline-block;margin-top:18px;font-family:var(--body);font-weight:600;
+    display:inline-block;margin-top:14px;font-family:var(--body);font-weight:600;
     color:var(--accent-strong);text-decoration:none;
   }
   .service-price a:hover{text-decoration:underline;}
 
   .method-intro{
-    padding-top:120px;
-    padding-bottom:56px;
+    padding-top:56px;
+    padding-bottom:20px;
   }
-  .method-intro .section-head{margin-bottom:0;}
+  .method-intro .section-head{
+    margin-bottom:0;
+    margin-left:18%;
+  }
   .method-band{
-    padding:108px 0 116px;
+    padding:40px 0 48px;
+    position:relative;
   }
   .method-band + .method-band{
     border-top:1px solid var(--line);
   }
   .method-band.alt{background:var(--card);}
   .method-band h3{
-    font-size:clamp(2.7rem, 7.2vw, 4.85rem);
+    font-size:clamp(2.15rem, 5.6vw, 3.6rem);
     font-weight:800;
     line-height:0.98;
     letter-spacing:-0.025em;
@@ -205,24 +247,86 @@
   }
   .method-band p{
     color:var(--text-muted);
-    font-size:1.08rem;
-    max-width:38rem;
-    margin:32px 0 0;
-    line-height:1.6;
+    font-size:1.05rem;
+    max-width:34rem;
+    margin:14px 0 0;
+    line-height:1.55;
   }
   .method-kicker{
     font-family:var(--mono);font-size:0.72rem;letter-spacing:0.16em;
-    text-transform:uppercase;color:var(--accent-strong);margin-bottom:22px;
+    text-transform:uppercase;color:var(--accent-strong);margin-bottom:12px;
+  }
+  .method-slash{
+    width:72px;height:2px;background:var(--mark);
+    transform:rotate(-32deg);
+    margin:0 0 18px 6px;
+  }
+  .method-band.shift .wrap{
+    padding-left:12%;
+  }
+  .method-band.alt .wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    text-align:right;
+  }
+  .method-band.alt h3,
+  .method-band.alt p{margin-left:auto;}
+  .method-band.split .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:28px 40px;
+    align-items:end;
+  }
+  .method-band.split h3{max-width:none;}
+  .method-band.split p{margin-top:10px;}
+  @media (max-width:760px){
+    .method-intro .section-head{margin-left:0;}
+    .method-band.shift .wrap{padding-left:0;}
+    .method-band.alt .wrap{align-items:flex-start;text-align:left;}
+    .method-band.alt h3,
+    .method-band.alt p{margin-left:0;}
+    .method-band.split .wrap{grid-template-columns:1fr;gap:10px;}
   }
   @media (max-width:640px){
-    .method-intro{padding-top:84px;padding-bottom:40px;}
-    .method-band{padding:80px 0 88px;}
+    .method-intro{padding-top:44px;padding-bottom:12px;}
+    .method-band{padding:32px 0 36px;}
   }
 
+  /* Diagonal accent — method */
+  #method::after{
+    content:"";
+    position:absolute;
+    left:6%;
+    bottom:8%;
+    width:140px;
+    height:2px;
+    background:var(--mark);
+    transform:rotate(-18deg);
+    pointer-events:none;
+  }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:28px 48px;
+    align-items:start;
+  }
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;gap:24px;}
+    .book-box{transform:none;}
+    .badge{transform:none;}
+  }
+  .about-grid h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:8px;}
+  .about-copy{font-size:1.15rem;margin-top:14px;max-width:28rem;}
+  .about-loc{color:var(--text-muted);margin-top:8px;font-size:0.95rem;}
+
+  .cred-block{margin-top:28px;}
+  .cred-block .eyebrow{margin-bottom:14px;}
   .badges{
     display:flex;
     flex-wrap:wrap;
-    align-items:stretch;
+    align-items:flex-end;
     gap:0;
   }
   .badge{
@@ -240,10 +344,13 @@
     white-space:nowrap;
   }
   .badge + .badge{
-    margin-left:28px;
-    padding-left:28px;
+    margin-left:24px;
+    padding-left:24px;
     border-left:1px solid color-mix(in srgb, var(--ink) 28%, transparent);
   }
+  .badge:nth-child(1){transform:rotate(-2deg) translateY(4px);}
+  .badge:nth-child(2){transform:rotate(1.4deg) translateY(14px);}
+  .badge:nth-child(3){transform:rotate(-1deg) translateY(-6px);}
   @media (max-width:560px){
     .badge{
       font-size:0.68rem;
@@ -255,17 +362,22 @@
     }
   }
 
-  .about-book{
-    display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:end;
-  }
-  @media (max-width:760px){ .about-book{grid-template-columns:1fr;gap:28px;} }
-  .about-book h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:10px;}
-  .about-copy{font-size:1.15rem;margin-top:18px;max-width:28rem;}
-  .about-loc{color:var(--text-muted);margin-top:10px;font-size:0.95rem;}
   .book-box{
-    background:var(--card);border:1px solid var(--line);padding:28px 26px;
+    background:var(--card);border:1px solid var(--line);padding:24px 22px;
+    transform:translate(18px, 36px) rotate(-1.4deg);
+    position:relative;
   }
-  .book-box p{margin:0 0 18px;color:var(--text-muted);font-size:0.95rem;}
+  .book-box::before{
+    content:"";
+    position:absolute;
+    top:-14px;
+    left:22px;
+    width:56px;
+    height:2px;
+    background:var(--mark);
+    transform:rotate(-24deg);
+  }
+  .book-box p{margin:0 0 16px;color:var(--text-muted);font-size:0.95rem;}
   .btn{
     font-family:var(--body);font-weight:600;font-size:0.96rem;
     text-decoration:none;padding:13px 24px;border-radius:3px;
@@ -274,7 +386,20 @@
   }
   .btn:hover{background:var(--sandstone);}
 
-  footer{padding:40px 0;border-top:1px solid var(--line);}
+  /* Diagonal accent — about */
+  #about::after{
+    content:"";
+    position:absolute;
+    right:10%;
+    top:-18px;
+    width:2px;
+    height:160px;
+    background:var(--mark);
+    transform:rotate(-22deg);
+    pointer-events:none;
+  }
+
+  footer{padding:28px 0;border-top:1px solid var(--line);}
   .footer-inner{
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
     font-size:0.86rem;color:var(--text-muted);
@@ -283,6 +408,9 @@
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
+    .service-card,
+    .badge,
+    .book-box{transform:none;}
   }
 </style>
 </head>
@@ -297,7 +425,6 @@
     <nav class="jump" aria-label="Page">
       <a href="#services">Services</a>
       <a href="#method">The Method</a>
-      <a href="#credentials">Credentials</a>
       <a href="#about">About</a>
     </nav>
   </div>
@@ -306,9 +433,12 @@
 <main id="top">
   <section id="services">
     <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Work together</div>
-        <h2>Services</h2>
+      <div class="services-head">
+        <div class="section-head">
+          <div class="eyebrow">Work together</div>
+          <h2>Services</h2>
+        </div>
+        <div class="slash" aria-hidden="true"></div>
       </div>
       <div class="services-grid">
 
@@ -389,48 +519,45 @@
 
     <div class="method-band">
       <div class="wrap">
-        <div class="method-kicker">01 — Technique</div>
+        <div class="method-slash" aria-hidden="true"></div>
+        <div class="method-kicker">Technique</div>
         <h3>Cleaner movement, on purpose.</h3>
         <p>We isolate the inefficient patterns — feet, hips, sequence, clip — and rebuild them so the hard moves cost less.</p>
       </div>
     </div>
     <div class="method-band alt">
       <div class="wrap">
-        <div class="method-kicker">02 — Video</div>
+        <div class="method-kicker">Video</div>
         <h3>Watch the attempt, not the story of it.</h3>
         <p>Short clips of the work, reviewed together. You see the missed foot, the rushed clip, the extra move. Then we go back and do it again.</p>
       </div>
     </div>
-    <div class="method-band">
+    <div class="method-band split shift">
       <div class="wrap">
-        <div class="method-kicker">03 — Mental game</div>
         <h3>Attention is a skill. Train it.</h3>
-        <p>Breath, arousal, and self-talk get coached the same way movement does — in the session, not as a pep talk after.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="credentials">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">On paper</div>
-        <h2>Credentials</h2>
-      </div>
-      <div class="badges">
-        <div class="badge">AMGA SPI</div>
-        <div class="badge">WFA</div>
-        <div class="badge">RWW Trainer</div>
+        <div>
+          <div class="method-kicker">Mental game</div>
+          <p>Breath, arousal, and self-talk get coached the same way movement does — in the session, not as a pep talk after.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <div class="wrap about-book">
+    <div class="wrap about-grid">
       <div>
         <div class="eyebrow">About</div>
         <h2>John</h2>
         <p class="about-copy">John — B.S. in Exercise Science, minor in Psychology.</p>
         <p class="about-loc">Leipers Fork, TN</p>
+        <div class="cred-block">
+          <div class="eyebrow">On paper</div>
+          <div class="badges">
+            <div class="badge">AMGA SPI</div>
+            <div class="badge">WFA</div>
+            <div class="badge">RWW Trainer</div>
+          </div>
+        </div>
       </div>
       <div class="book-box">
         <p>Send a note with what you want to work on and when. You’ll hear back to set up a call.</p>
