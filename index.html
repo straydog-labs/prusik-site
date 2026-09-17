@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prusik — Guiding &amp; Coaching</title>
-<meta name="description" content="Prusik — guiding and coaching from Leipers Fork, TN. Guided climbing days, personal coaching, corporate training, and veteran &amp; nonprofit programs.">
+<meta name="description" content="Prusik — guiding and coaching from Leipers Fork, TN. Guided climbing days, personal coaching, and corporate and group programs.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -54,13 +54,6 @@
   a{color:inherit;}
   .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
   h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;letter-spacing:-0.015em;}
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:0.72rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--accent-strong);
-  }
 
   header.site-header{
     position:sticky;top:0;z-index:30;
@@ -68,29 +61,30 @@
     border-bottom:1px solid var(--line);
   }
   .header-inner{
-    max-width:1080px;margin:0 auto;padding:22px 28px 20px;
+    max-width:1080px;margin:0 auto;padding:20px 28px 18px;
     display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
   }
-  .brand{text-decoration:none;display:block;}
+  .brand{text-decoration:none;display:block;min-width:0;}
   .brand .wordmark{
     font-family:var(--display);
     font-weight:800;
-    font-size:clamp(2.55rem, 4.2vw, 3.2rem);
-    letter-spacing:0.08em;
-    line-height:0.92;
+    font-size:clamp(3.6rem, 8.5vw, 5.6rem);
+    letter-spacing:0.04em;
+    line-height:0.88;
   }
   .brand .subtitle{
     font-family:var(--mono);
-    font-size:0.66rem;
+    font-size:clamp(0.92rem, 1.8vw, 1.12rem);
     font-weight:500;
-    letter-spacing:0.22em;
+    letter-spacing:0.18em;
     text-transform:uppercase;
-    color:var(--text-muted);
-    margin-top:10px;
+    color:var(--ink);
+    margin-top:12px;
   }
   nav.jump{
-    display:flex;flex-wrap:wrap;gap:8px 22px;font-size:0.92rem;
-    padding-bottom:4px;
+    display:flex;flex-wrap:wrap;gap:8px 28px;font-size:1rem;
+    padding-bottom:8px;
+    flex-shrink:0;
   }
   nav.jump a{
     text-decoration:none;color:var(--text-muted);
@@ -98,9 +92,9 @@
     transition:color .15s, border-color .15s;
   }
   nav.jump a:hover{color:var(--text);border-color:var(--accent);}
-  @media (max-width:720px){
-    .header-inner{flex-direction:column;align-items:flex-start;gap:14px;padding:18px 20px 16px;}
-    nav.jump{gap:8px 18px;font-size:0.88rem;padding-bottom:0;}
+  @media (max-width:640px){
+    .header-inner{padding:16px 20px 14px;gap:16px;}
+    nav.jump{font-size:0.92rem;padding-bottom:4px;}
   }
 
   section{
@@ -111,25 +105,16 @@
   .section-head{margin-bottom:28px;}
   .section-head h2{
     font-size:clamp(2.05rem,4vw,2.85rem);
-    margin-top:8px;
     font-weight:800;
   }
 
   #services{background:var(--chapter-tint);}
-  #method{background:var(--bg);}
   #about{
-    background:var(--chapter-tint);
-    position:relative;
-    z-index:1;
-  }
-  #method,
-  #about{
+    background:var(--bg);
     border-top:1px solid var(--mark);
   }
 
-  .service-list{
-    border-top:1px solid var(--line);
-  }
+  .service-list{border-top:1px solid var(--line);}
   .service-row{
     display:grid;
     grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);
@@ -139,16 +124,38 @@
     border-bottom:1px solid var(--line);
   }
   .service-copy h3{
-    font-size:1.28rem;
+    font-size:1.32rem;
     font-weight:700;
     letter-spacing:-0.01em;
   }
-  .service-copy p{
+  .service-copy > p{
     color:var(--text-muted);
     font-size:0.95rem;
     margin:8px 0 0;
     max-width:36rem;
     line-height:1.5;
+  }
+  .coaching-points{
+    list-style:none;
+    margin:16px 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .coaching-points li{
+    font-size:0.92rem;
+    color:var(--text);
+    line-height:1.4;
+  }
+  .coaching-points span{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    display:inline-block;
+    min-width:7.6rem;
   }
   .service-meta{
     display:flex;
@@ -195,94 +202,93 @@
     margin:0;
     line-height:1.55;
   }
-  .service-meta a{
+  .service-cta{
     font-family:var(--body);font-weight:600;
     color:var(--accent-strong);text-decoration:none;
   }
-  .service-meta a:hover{text-decoration:underline;}
+  .service-cta:hover{text-decoration:underline;}
   @media (max-width:760px){
     .service-row{
       grid-template-columns:1fr;
       gap:16px;
       padding:22px 0;
     }
+    .coaching-points span{display:block;min-width:0;margin-bottom:2px;}
   }
 
-  .method-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px 32px;
-    align-items:start;
+  .about-identity{margin-bottom:22px;}
+  .about-identity h2{
+    font-size:clamp(2.2rem,4.4vw,3.1rem);
+    font-weight:800;
   }
-  .method-col{min-width:0;}
-  .method-kicker{
+  .about-role{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    margin:10px 0 0;
+  }
+  .about-copy{
+    font-size:1.08rem;
+    max-width:42rem;
+    margin:0 0 16px;
+    color:var(--text);
+  }
+  .about-copy:last-of-type{margin-bottom:0;}
+  .about-loc{
+    color:var(--text-muted);
+    margin:18px 0 0;
+    font-size:1rem;
+  }
+
+  .cred-block{margin-top:40px;}
+  .cred-block h3{
     font-family:var(--mono);
     font-size:0.72rem;
     letter-spacing:0.16em;
     text-transform:uppercase;
+    font-weight:500;
     color:var(--accent-strong);
-    margin-bottom:10px;
+    margin-bottom:22px;
   }
-  .method-col h3{
-    font-size:1.28rem;
-    font-weight:700;
-    line-height:1.22;
-    letter-spacing:-0.015em;
+  .cred-row{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:22px 24px;
   }
-  .method-col p{
-    color:var(--text-muted);
-    font-size:0.95rem;
-    margin:12px 0 0;
-    line-height:1.55;
+  .cred{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .cred svg{
+    width:28px;
+    height:28px;
+    display:block;
+  }
+  .cred p{
+    margin:0;
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    line-height:1.4;
+    color:var(--text);
   }
   @media (max-width:760px){
-    .method-grid{grid-template-columns:1fr;gap:28px;}
+    .cred-row{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:420px){
+    .cred-row{grid-template-columns:1fr;}
   }
 
-  .about-grid{
-    display:grid;
-    grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);
-    gap:32px 48px;
-    align-items:start;
-  }
-  .about-main h2{
-    font-size:clamp(2.05rem,4vw,2.85rem);
-    margin-top:8px;
-    font-weight:800;
-  }
-  .about-copy{font-size:1.15rem;margin:14px 0 0;max-width:28rem;}
-  .about-loc{color:var(--text-muted);margin:8px 0 0;font-size:0.95rem;}
-  .cred-block{margin-top:28px;}
-  .cred-block .eyebrow{margin-bottom:14px;}
-  .badges{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:flex-end;
-    gap:0;
-  }
-  .badge{
-    font-family:var(--mono);
-    font-size:0.82rem;
-    font-weight:500;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--text);
-    background:transparent;
-    border:0;
-    border-bottom:1.5px solid var(--mark);
-    padding:6px 0 10px;
-    line-height:1.2;
-    white-space:nowrap;
-  }
-  .badge + .badge{
-    margin-left:24px;
-    padding-left:24px;
-    border-left:1px solid color-mix(in srgb, var(--ink) 28%, transparent);
-  }
   .book-box{
+    margin-top:40px;
     background:var(--card);
     border:1px solid var(--line);
     padding:28px 26px;
+    max-width:42rem;
   }
   .book-box p{margin:0 0 16px;color:var(--text-muted);font-size:0.95rem;}
   .btn{
@@ -292,17 +298,6 @@
     background:var(--accent-strong);color:var(--bg);
   }
   .btn:hover{background:var(--sandstone);}
-  @media (max-width:760px){
-    .about-grid{grid-template-columns:1fr;gap:24px;}
-    .badge{
-      font-size:0.68rem;
-      letter-spacing:0.12em;
-    }
-    .badge + .badge{
-      margin-left:14px;
-      padding-left:14px;
-    }
-  }
 
   footer{padding:28px 0;border-top:1px solid var(--line);background:var(--bg);}
   .footer-inner{
@@ -326,7 +321,6 @@
     </a>
     <nav class="jump" aria-label="Page">
       <a href="#services">Services</a>
-      <a href="#method">The Method</a>
       <a href="#about">About</a>
     </nav>
   </div>
@@ -336,7 +330,6 @@
   <section id="services">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">Work together</div>
         <h2>Services</h2>
       </div>
       <div class="service-list">
@@ -365,7 +358,7 @@
                 <div class="price-cap">Full day for 2</div>
               </div>
             </div>
-            <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Guided%20Climbing%20Day">Email to book</a>
+            <a class="service-cta" href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Guided%20Climbing%20Day">Book a Climbing Day</a>
           </div>
         </article>
 
@@ -373,6 +366,11 @@
           <div class="service-copy">
             <h3>Personal Coaching</h3>
             <p>For individuals or climbing partners. Mixed remote and in-person.</p>
+            <ul class="coaching-points">
+              <li><span>Technique</span> Cleaner movement, on purpose.</li>
+              <li><span>Video</span> Watch the attempt, not the story of it.</li>
+              <li><span>Mental game</span> Attention is a skill. Train it.</li>
+            </ul>
           </div>
           <div class="service-meta">
             <div class="price-grid">
@@ -386,78 +384,76 @@
               </div>
             </div>
             <p class="price-note">Remote: contact for pricing — free intro call for remote sessions</p>
-            <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Personal%20Coaching">Email to book</a>
+            <a class="service-cta" href="https://cal.com/john-campbell/15min">Book a Free Intro Call</a>
           </div>
         </article>
 
         <article class="service-row">
           <div class="service-copy">
-            <h3>Corporate Training</h3>
-            <p>Team programs on the rock, scoped to your people and your goals.</p>
+            <h3>Corporate &amp; Group Programs</h3>
+            <p>Programs for corporate teams, nonprofits, and retreats, scoped to the group’s people and goals.</p>
           </div>
           <div class="service-meta">
             <div class="price-amt contact">Contact for pricing</div>
-            <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Corporate%20Training">Email to inquire</a>
+            <a class="service-cta" href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Corporate%20%26%20Group%20Programs">Email to Inquire</a>
           </div>
         </article>
 
-        <article class="service-row">
-          <div class="service-copy">
-            <h3>Veteran &amp; Nonprofit</h3>
-            <p>Programming built with the population you serve, not a one-size clinic.</p>
-          </div>
-          <div class="service-meta">
-            <div class="price-amt contact">Contact for pricing</div>
-            <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Veteran%20%26%20Nonprofit">Email to inquire</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="method">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Why this is different</div>
-        <h2>The Method</h2>
-      </div>
-      <div class="method-grid">
-        <article class="method-col">
-          <div class="method-kicker">Technique</div>
-          <h3>Cleaner movement, on purpose.</h3>
-          <p>We isolate the inefficient patterns — feet, hips, sequence, clip — and rebuild them so the hard moves cost less.</p>
-        </article>
-        <article class="method-col">
-          <div class="method-kicker">Video</div>
-          <h3>Watch the attempt, not the story of it.</h3>
-          <p>Short clips of the work, reviewed together. You see the missed foot, the rushed clip, the extra move. Then we go back and do it again.</p>
-        </article>
-        <article class="method-col">
-          <div class="method-kicker">Mental game</div>
-          <h3>Attention is a skill. Train it.</h3>
-          <p>Breath, arousal, and self-talk get coached the same way movement does — in the session, not as a pep talk after.</p>
-        </article>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <div class="wrap about-grid">
-      <div class="about-main">
-        <div class="eyebrow">About</div>
-        <h2>John</h2>
-        <p class="about-copy">John — B.S. in Exercise Science, minor in Psychology.</p>
-        <p class="about-loc">Leipers Fork, TN</p>
-        <div class="cred-block">
-          <div class="eyebrow">Certifications</div>
-          <div class="badges">
-            <div class="badge">AMGA SPI</div>
-            <div class="badge">WFA</div>
-            <div class="badge">RWW Trainer</div>
+    <div class="wrap">
+      <div class="about-identity">
+        <h2>John Campbell</h2>
+        <p class="about-role">Founder, Guiding &amp; Coaching</p>
+      </div>
+      <p class="about-copy">Climbing has taught me how to work with my stress, my fears, my ego, at the crags and in every other part of my life. Finding that edge, where I can know when to push myself and when to let myself back off, has empowered me to fall in love with the process as I work towards my goals. I want to share that with as many people as I can.</p>
+      <p class="about-copy">I started out as a performance coach for athletes, then climbing pulled me in and I started coaching climbers instead. What I found was the same thing I want for you: real empowerment under stress.</p>
+      <p class="about-copy">Now I bring it all together, exercise science, the mental game, and technique training, to help you find your edge and work with it, not against it.</p>
+      <p class="about-loc">Based in Leipers Fork, TN.</p>
+
+      <div class="cred-block">
+        <h3>Credentials</h3>
+        <div class="cred-row">
+          <div class="cred">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M5 11 L16 7 L27 11 L16 15 Z" stroke="#a8562f" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M9 13.2 V20.5 C9 20.5 12.5 23 16 23 C19.5 23 23 20.5 23 20.5 V13.2" stroke="#a8562f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M27 11 V19" stroke="#a8562f" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <p>B.S. Exercise Science, minor in Psychology</p>
+          </div>
+          <div class="cred">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M16 4 V28" stroke="#a8562f" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M16 11 C21 10 23 15 20 18 C18 20 16 19 16 16" stroke="#a8562f" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M14.2 12.2 H17.8" stroke="#a8562f" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M14.2 14.4 H17.8" stroke="#a8562f" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <p>AMGA Single Pitch Instructor (SPI)</p>
+          </div>
+          <div class="cred">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="11" stroke="#a8562f" stroke-width="1.6"/>
+              <path d="M16 10 V22" stroke="#a8562f" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M10 16 H22" stroke="#a8562f" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <p>Wilderness First Aid (WFA)</p>
+          </div>
+          <div class="cred">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="11" cy="10" r="3" stroke="#a8562f" stroke-width="1.6"/>
+              <path d="M6.5 22 C6.8 16.8 15.2 16.8 15.5 22" stroke="#a8562f" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="21.5" cy="11" r="2.4" stroke="#a8562f" stroke-width="1.6"/>
+              <path d="M17.8 22 C18.1 18.2 24.9 18.2 25.2 22" stroke="#a8562f" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <p>RWW Trainer</p>
           </div>
         </div>
       </div>
+
       <div class="book-box">
         <p>Send a note with what you want to work on and when. You’ll hear back to set up a call.</p>
         <a class="btn" href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Booking">Email to book</a>
