@@ -131,23 +131,7 @@
     pointer-events:none;
   }
 
-  .services-head{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:24px;
-    margin-bottom:28px;
-  }
-  .services-head .slash{
-    width:88px;height:2px;background:var(--mark);
-    transform:rotate(-22deg);
-    margin:0 8px 18px 0;
-    flex-shrink:0;
-  }
-  @media (max-width:640px){
-    .services-head{flex-direction:column;align-items:flex-start;gap:0;}
-    .services-head .slash{margin:4px 0 16px 12px;}
-  }
+  .services-head{margin-bottom:28px;}
 
   .services-grid{
     display:grid;
@@ -256,10 +240,17 @@
     font-family:var(--mono);font-size:0.72rem;letter-spacing:0.16em;
     text-transform:uppercase;color:var(--accent-strong);margin-bottom:12px;
   }
+  .method-lead{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:12px;
+  }
+  .method-lead .method-kicker{margin-bottom:0;}
   .method-slash{
-    width:72px;height:2px;background:var(--mark);
-    transform:rotate(-32deg);
-    margin:0 0 18px 6px;
+    width:52px;height:2px;background:var(--mark);
+    transform:rotate(-28deg);
+    flex-shrink:0;
   }
   .method-band.shift .wrap{
     padding-left:12%;
@@ -281,6 +272,9 @@
   .method-band.split h3{max-width:none;}
   .method-band.split p{margin-top:10px;}
   @media (max-width:760px){
+    #services::before,
+    #method::after,
+    #about::after{display:none;}
     .method-intro .section-head{margin-left:0;}
     .method-band.shift .wrap{padding-left:0;}
     .method-band.alt .wrap{align-items:flex-start;text-align:left;}
@@ -438,7 +432,6 @@
           <div class="eyebrow">Work together</div>
           <h2>Services</h2>
         </div>
-        <div class="slash" aria-hidden="true"></div>
       </div>
       <div class="services-grid">
 
@@ -519,8 +512,10 @@
 
     <div class="method-band">
       <div class="wrap">
-        <div class="method-slash" aria-hidden="true"></div>
-        <div class="method-kicker">Technique</div>
+        <div class="method-lead">
+          <div class="method-kicker">Technique</div>
+          <div class="method-slash" aria-hidden="true"></div>
+        </div>
         <h3>Cleaner movement, on purpose.</h3>
         <p>We isolate the inefficient patterns — feet, hips, sequence, clip — and rebuild them so the hard moves cost less.</p>
       </div>
