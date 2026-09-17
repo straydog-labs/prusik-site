@@ -122,52 +122,50 @@
     position:relative;
     z-index:1;
   }
-
   #method,
   #about{
     border-top:1px solid var(--mark);
   }
 
-  .services-head{margin-bottom:28px;}
-
-  .services-grid{
+  .service-list{
+    border-top:1px solid var(--line);
+  }
+  .service-row{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px 20px;
+    grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);
+    gap:24px 48px;
     align-items:start;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
   }
-  @media (max-width:760px){
-    .services-grid{grid-template-columns:1fr;gap:14px;}
-    .service-card{transform:none !important;margin-top:0 !important;}
-  }
-  .service-card{
-    background:var(--card);padding:24px 22px;
-    display:flex;flex-direction:column;gap:8px;
-  }
-  .service-card:nth-child(1){transform:rotate(-0.6deg);}
-  .service-card:nth-child(2){margin-top:36px;transform:rotate(0.7deg);}
-  .service-card:nth-child(3){margin-top:-8px;transform:rotate(0.45deg);}
-  .service-card:nth-child(4){margin-top:28px;transform:rotate(-0.5deg);}
-  .service-card h3{
-    font-size:1.18rem;
-    font-weight:600;
+  .service-copy h3{
+    font-size:1.28rem;
+    font-weight:700;
     letter-spacing:-0.01em;
   }
-  .service-card > p{color:var(--text-muted);font-size:0.92rem;margin:0;line-height:1.5;}
-  .service-price{
-    border-top:1px solid var(--line);
-    padding-top:16px;
-    margin-top:auto;
+  .service-copy p{
+    color:var(--text-muted);
+    font-size:0.95rem;
+    margin:8px 0 0;
+    max-width:36rem;
+    line-height:1.5;
+  }
+  .service-meta{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
   }
   .price-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:16px 18px;
+    gap:14px 28px;
+    width:100%;
   }
   .price-amt{
     font-family:var(--display);
     font-weight:800;
-    font-size:clamp(2.15rem, 3.4vw, 2.7rem);
+    font-size:clamp(1.7rem, 2.4vw, 2.15rem);
     line-height:0.95;
     letter-spacing:-0.02em;
     color:var(--mark);
@@ -175,7 +173,7 @@
     font-feature-settings:"tnum" 1;
   }
   .price-amt.contact{
-    font-size:clamp(1.55rem, 2.6vw, 1.95rem);
+    font-size:clamp(1.35rem, 2vw, 1.65rem);
     line-height:1.12;
     letter-spacing:-0.015em;
   }
@@ -194,14 +192,21 @@
     font-size:0.68rem;
     letter-spacing:0.06em;
     color:var(--text-muted);
-    margin-top:14px;
+    margin:0;
     line-height:1.55;
   }
-  .service-price a{
-    display:inline-block;margin-top:14px;font-family:var(--body);font-weight:600;
+  .service-meta a{
+    font-family:var(--body);font-weight:600;
     color:var(--accent-strong);text-decoration:none;
   }
-  .service-price a:hover{text-decoration:underline;}
+  .service-meta a:hover{text-decoration:underline;}
+  @media (max-width:760px){
+    .service-row{
+      grid-template-columns:1fr;
+      gap:16px;
+      padding:22px 0;
+    }
+  }
 
   .method-grid{
     display:grid;
@@ -209,9 +214,7 @@
     gap:28px 32px;
     align-items:start;
   }
-  .method-col{
-    min-width:0;
-  }
+  .method-col{min-width:0;}
   .method-kicker{
     font-family:var(--mono);
     font-size:0.72rem;
@@ -238,23 +241,17 @@
 
   .about-grid{
     display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:28px 48px;
-    align-items:start;
+    grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);
+    gap:32px 48px;
+    align-items:stretch;
   }
-  @media (max-width:760px){
-    .about-grid{grid-template-columns:1fr;gap:24px;}
-    .book-box{transform:none;}
-    .badge{transform:none;}
-  }
-  .about-grid h2{
+  .about-main h2{
     font-size:clamp(2.05rem,4vw,2.85rem);
     margin-top:8px;
     font-weight:800;
   }
-  .about-copy{font-size:1.15rem;margin-top:14px;max-width:28rem;}
-  .about-loc{color:var(--text-muted);margin-top:8px;font-size:0.95rem;}
-
+  .about-copy{font-size:1.15rem;margin:14px 0 0;max-width:28rem;}
+  .about-loc{color:var(--text-muted);margin:8px 0 0;font-size:0.95rem;}
   .cred-block{margin-top:28px;}
   .cred-block .eyebrow{margin-bottom:14px;}
   .badges{
@@ -282,10 +279,25 @@
     padding-left:24px;
     border-left:1px solid color-mix(in srgb, var(--ink) 28%, transparent);
   }
-  .badge:nth-child(1){transform:rotate(-1.2deg) translateY(2px);}
-  .badge:nth-child(2){transform:rotate(1deg) translateY(8px);}
-  .badge:nth-child(3){transform:rotate(-0.8deg) translateY(-4px);}
-  @media (max-width:560px){
+  .book-box{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:28px 26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .book-box p{margin:0 0 16px;color:var(--text-muted);font-size:0.95rem;}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:0.96rem;
+    text-decoration:none;padding:13px 24px;border-radius:3px;
+    display:inline-flex;align-items:center;
+    align-self:flex-start;
+    background:var(--accent-strong);color:var(--bg);
+  }
+  .btn:hover{background:var(--sandstone);}
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;gap:24px;}
     .badge{
       font-size:0.68rem;
       letter-spacing:0.12em;
@@ -296,19 +308,6 @@
     }
   }
 
-  .book-box{
-    background:var(--card);border:1px solid var(--line);padding:24px 22px;
-    transform:translate(18px, 36px) rotate(-1.4deg);
-  }
-  .book-box p{margin:0 0 16px;color:var(--text-muted);font-size:0.95rem;}
-  .btn{
-    font-family:var(--body);font-weight:600;font-size:0.96rem;
-    text-decoration:none;padding:13px 24px;border-radius:3px;
-    display:inline-flex;align-items:center;
-    background:var(--accent-strong);color:var(--bg);
-  }
-  .btn:hover{background:var(--sandstone);}
-
   footer{padding:28px 0;border-top:1px solid var(--line);background:var(--bg);}
   .footer-inner{
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
@@ -318,9 +317,6 @@
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    .service-card,
-    .badge,
-    .book-box{transform:none;}
   }
 </style>
 </head>
@@ -343,18 +339,18 @@
 <main id="top">
   <section id="services">
     <div class="wrap">
-      <div class="services-head">
-        <div class="section-head">
-          <div class="eyebrow">Work together</div>
-          <h2>Services</h2>
-        </div>
+      <div class="section-head">
+        <div class="eyebrow">Work together</div>
+        <h2>Services</h2>
       </div>
-      <div class="services-grid">
+      <div class="service-list">
 
-        <article class="service-card">
-          <h3>Guided Climbing Day</h3>
-          <p>Walk-up guiding for one or two climbers. Half-day up to 3 hours; full day up to 6.</p>
-          <div class="service-price">
+        <article class="service-row">
+          <div class="service-copy">
+            <h3>Guided Climbing Day</h3>
+            <p>Walk-up guiding for one or two climbers. Half-day up to 3 hours; full day up to 6.</p>
+          </div>
+          <div class="service-meta">
             <div class="price-grid">
               <div class="price-item">
                 <div class="price-amt">$250</div>
@@ -377,10 +373,12 @@
           </div>
         </article>
 
-        <article class="service-card">
-          <h3>Personal Coaching</h3>
-          <p>For individuals or climbing partners. Mixed remote and in-person.</p>
-          <div class="service-price">
+        <article class="service-row">
+          <div class="service-copy">
+            <h3>Personal Coaching</h3>
+            <p>For individuals or climbing partners. Mixed remote and in-person.</p>
+          </div>
+          <div class="service-meta">
             <div class="price-grid">
               <div class="price-item">
                 <div class="price-amt">$300</div>
@@ -396,19 +394,23 @@
           </div>
         </article>
 
-        <article class="service-card">
-          <h3>Corporate Training</h3>
-          <p>Team programs on the rock, scoped to your people and your goals.</p>
-          <div class="service-price">
+        <article class="service-row">
+          <div class="service-copy">
+            <h3>Corporate Training</h3>
+            <p>Team programs on the rock, scoped to your people and your goals.</p>
+          </div>
+          <div class="service-meta">
             <div class="price-amt contact">Contact for pricing</div>
             <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Corporate%20Training">Email to inquire</a>
           </div>
         </article>
 
-        <article class="service-card">
-          <h3>Veteran &amp; Nonprofit</h3>
-          <p>Programming built with the population you serve, not a one-size clinic.</p>
-          <div class="service-price">
+        <article class="service-row">
+          <div class="service-copy">
+            <h3>Veteran &amp; Nonprofit</h3>
+            <p>Programming built with the population you serve, not a one-size clinic.</p>
+          </div>
+          <div class="service-meta">
             <div class="price-amt contact">Contact for pricing</div>
             <a href="mailto:j.morecowbell@gmail.com?subject=Prusik%20—%20Veteran%20%26%20Nonprofit">Email to inquire</a>
           </div>
@@ -446,13 +448,13 @@
 
   <section id="about">
     <div class="wrap about-grid">
-      <div>
+      <div class="about-main">
         <div class="eyebrow">About</div>
         <h2>John</h2>
         <p class="about-copy">John — B.S. in Exercise Science, minor in Psychology.</p>
         <p class="about-loc">Leipers Fork, TN</p>
         <div class="cred-block">
-          <div class="eyebrow">On paper</div>
+          <div class="eyebrow">Certifications</div>
           <div class="badges">
             <div class="badge">AMGA SPI</div>
             <div class="badge">WFA</div>
