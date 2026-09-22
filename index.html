@@ -15,16 +15,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:opsz,wght@14..144,500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#2A241D;
-    --stone:#C4B49A;
+    --ink:#EDE6D8;
+    --stone:#3A3226;
     --sandstone:#B07A45;
     --taupe:#8C7358;
-    --chalk:#E9E0D2;
-    --surface:#F4EDE3;
-    --muted:#6F6458;
+    --chalk:#17140F;
+    --surface:#211C15;
+    --muted:#A79C8A;
     --deep:#8C5A2E;
-    --line:rgba(42,36,29,0.14);
-    --shadow:rgba(42,36,29,0.08);
+    --line:rgba(237,230,216,0.14);
+    --shadow:rgba(0,0,0,0.35);
     --mark:#a8562f;
 
     --bg:var(--chalk);
@@ -112,6 +112,35 @@
   #about{
     background:var(--bg);
     border-top:1px solid var(--mark);
+  }
+
+  .service-finder{margin-bottom:32px;}
+  .service-finder-prompt{font:600 15px/1.4 var(--body);color:var(--text-muted);margin:0 0 12px;}
+  .service-finder-options{display:flex;flex-wrap:wrap;gap:8px;}
+  .sf-btn{
+    font:500 14px/1.3 var(--body);
+    color:var(--text);
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:8px 16px;
+    cursor:pointer;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .sf-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .sf-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .service-finder-note{
+    font:italic 400 14px/1.4 var(--body);
+    color:var(--text-muted);
+    margin:12px 0 0;
+  }
+  .service-row.sf-highlight{
+    border-color:var(--accent);
+    box-shadow:0 0 0 1px var(--accent);
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .service-row.sf-highlight{transition:none;}
   }
 
   .service-list{border-top:1px solid var(--line);}
@@ -337,12 +366,23 @@
       <div class="section-head">
         <h2>Services</h2>
       </div>
+      <div class="service-finder" role="group" aria-label="Find your service">
+        <p class="service-finder-prompt">Not sure where to start? What are you looking for?</p>
+        <div class="service-finder-options">
+          <button type="button" class="sf-btn" data-target="guiding-day">My first day climbing outside</button>
+          <button type="button" class="sf-btn" data-target="personal-coaching">Ongoing coaching, month to month</button>
+          <button type="button" class="sf-btn" data-target="training-day">One focused day on my route or project</button>
+          <button type="button" class="sf-btn" data-target="falling-clinic">A falling/commitment clinic for my gym or group</button>
+          <button type="button" class="sf-btn" data-target="corporate">A program for my company, team, or retreat</button>
+        </div>
+        <p class="service-finder-note" id="sf-note" hidden></p>
+      </div>
       <div class="service-list">
 
-        <article class="service-row">
+        <article class="service-row" id="guiding-day">
           <div class="service-copy">
             <h3>Guiding Day</h3>
-            <p>Your first day on rock. No experience or gear needed — just show up.</p>
+            <p>Your first day on rock. No experience or gear needed, just show up.</p>
             <ul class="coaching-points">
               <li><span>Your First Fall</span> Taught on day one, not left to chance.</li>
               <li><span>Own the Risk</span> You’re choosing this. You’re accountable for what happens next.</li>
@@ -371,10 +411,10 @@
           </div>
         </article>
 
-        <article class="service-row">
+        <article class="service-row" id="personal-coaching">
           <div class="service-copy">
             <h3>Personal Coaching</h3>
-            <p>$200/month flat — cancel anytime, no term or contract. Two live remote coaching sessions per month, fixed to the 1st and 3rd Tuesday, plus ongoing access to the SEE training-log app.</p>
+            <p>Coaching that runs alongside your actual training, not two days a month in isolation. Every session picks up from what you logged in SEE since the last one: real patterns, not memory.</p>
             <ul class="coaching-points">
               <li><span>Technique</span> Cleaner movement, on purpose.</li>
               <li><span>Video</span> Watch the attempt, not the story of it.</li>
@@ -389,12 +429,12 @@
           </div>
         </article>
 
-        <article class="service-row">
+        <article class="service-row" id="training-day">
           <div class="service-copy">
             <h3>On-Route/Project Training Day</h3>
-            <p>A full day on your route or project — technique, structured fall practice, and the mental tools to commit — coaching built into every lap, not just a guided ascent.</p>
+            <p>A full day on your actual route or project, not a demo climb. We work technique, practice falling on purpose, and build the case for committing when it counts.</p>
             <ul class="coaching-points">
-              <li><span>Technique</span> Coaching built into every lap.</li>
+              <li><span>Technique</span> Movement that holds up under real pressure.</li>
               <li><span>Falling Practice</span> Structured fall practice on the route.</li>
               <li><span>Mental Preparedness</span> The mental tools to commit.</li>
             </ul>
@@ -406,10 +446,10 @@
           </div>
         </article>
 
-        <article class="service-row">
+        <article class="service-row" id="falling-clinic">
           <div class="service-copy">
             <h3>Falling &amp; Commitment Clinic</h3>
-            <p>Rock Warrior’s Way Level 1 clinics on falling and commitment, run at gyms or outside. Small groups, real practice, real conversation about the risk you’re taking.</p>
+            <p>Rock Warrior’s Way Level 1 clinics on falling and commitment, held at your gym or outside. Small groups, real practice, real conversation about the risk you’re taking.</p>
             <p>Up to 6 climbers, bring your own gear.</p>
             <ul class="coaching-points">
               <li><span>Falling</span> Practice built to change how you actually respond, not just what you know.</li>
@@ -422,10 +462,14 @@
           </div>
         </article>
 
-        <article class="service-row">
+        <article class="service-row" id="corporate">
           <div class="service-copy">
             <h3>Corporate &amp; Group Programs</h3>
             <p>Programs for corporate teams, nonprofits, and retreats, scoped to the group’s people and goals.</p>
+            <ul class="coaching-points">
+              <li><span>Scoped to the Group</span> Built around your people, not a stock program.</li>
+              <li><span>One Point of Contact</span> You talk to me, not a sales team.</li>
+            </ul>
           </div>
           <div class="service-meta">
             <div class="price-amt contact">Contact for pricing</div>
@@ -472,6 +516,40 @@
     <div><a href="mailto:j.morecowbell@gmail.com">j.morecowbell@gmail.com</a></div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var notes = {
+    "guiding-day": "Most Guiding Day climbers move into Personal Coaching once they're hooked.",
+    "personal-coaching": "Add an On-Route/Project Training Day once you've got a specific route to send.",
+    "training-day": "Works best paired with monthly Personal Coaching, but stands on its own as a single booking.",
+    "falling-clinic": "Run through your gym or as a private group booking — email to set a date.",
+    "corporate": ""
+  };
+  var buttons = document.querySelectorAll(".sf-btn");
+  var note = document.getElementById("sf-note");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  buttons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var target = document.getElementById(btn.dataset.target);
+      if(!target) return;
+      document.querySelectorAll(".service-row.sf-highlight").forEach(function(el){
+        el.classList.remove("sf-highlight");
+      });
+      target.classList.add("sf-highlight");
+      target.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block: "center"});
+      var text = notes[btn.dataset.target];
+      if(text){
+        note.textContent = text;
+        note.hidden = false;
+      } else {
+        note.hidden = true;
+      }
+      setTimeout(function(){ target.classList.remove("sf-highlight"); }, 2400);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
