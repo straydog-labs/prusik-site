@@ -128,7 +128,7 @@ export const SERVICES: Service[] = [
     title: "Falling & Commitment Clinic",
     paragraphs: [
       "Rock Warrior’s Way Level 1 clinics on falling and commitment, at your gym or outside. Small groups, real practice, real conversation about the risk you’re taking.",
-      "Up to 6 climbers, bring your own gear.",
+      "Up to 4 climbers, bring your own gear.",
     ],
     points: [
       {
