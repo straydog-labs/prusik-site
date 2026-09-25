@@ -20,9 +20,10 @@ const config: Config = {
         mono: ["var(--font-plex)", "IBM Plex Mono", "SF Mono", "Menlo", "monospace"],
       },
       fontSize: {
-        body: ["17px", { lineHeight: "1.6" }],
-        copy: ["1.08rem", { lineHeight: "1.68" }],
-        eyebrow: ["0.875rem", { lineHeight: "1.4", letterSpacing: "0.06em" }],
+        body: ["20px", { lineHeight: "1.7" }],
+        copy: ["21px", { lineHeight: "1.7" }],
+        eyebrow: ["0.9375rem", { lineHeight: "1.45", letterSpacing: "0.05em" }],
+        chip: ["16px", { lineHeight: "1.4" }],
       },
       borderRadius: {
         panel: "14px",

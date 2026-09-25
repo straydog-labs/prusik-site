@@ -10,8 +10,8 @@ body {
   background: theme("colors.chalk");
   color: theme("colors.ink");
   font-family: theme("fontFamily.body");
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -23,18 +23,18 @@ export default function ServiceRow({ service, highlighted, register }: Props) {
       }`}
     >
       <div>
-        <h3 className="font-display text-[1.5rem] font-bold tracking-[-0.01em] text-ink">
+        <h3 className="font-display text-[1.85rem] font-bold tracking-[-0.01em] text-ink">
           {service.title}
         </h3>
         {service.paragraphs.map((paragraph) => (
-          <p key={paragraph} className="mt-2 max-w-xl text-copy text-muted">
+          <p key={paragraph} className="mt-3 max-w-[40ch] text-copy text-ink">
             {paragraph}
           </p>
         ))}
-        <ul className="mt-5 flex list-none flex-col gap-3.5 p-0">
+        <ul className="mt-6 flex list-none flex-col gap-4 p-0">
           {service.points.map((point) => (
-            <li key={point.label} className="text-[1.02rem] leading-snug text-ink">
-              <span className="mb-1 block font-mono text-eyebrow font-medium uppercase text-mark">
+            <li key={point.label} className="max-w-[40ch] text-copy text-ink">
+              <span className="mb-1 block font-mono text-eyebrow font-medium text-mark">
                 {point.label}
               </span>
               {point.text}
