@@ -37,31 +37,6 @@ export const NAV = [
   { href: "#about", label: "About" },
 ] as const;
 
-export const FINDER = {
-  prompt: "Not sure where to start? What are you looking for?",
-  options: [
-    { id: "guiding-day", label: "My first day climbing outside" },
-    { id: "personal-coaching", label: "Ongoing coaching, month to month" },
-    { id: "training-day", label: "One focused day on my route or project" },
-    {
-      id: "falling-clinic",
-      label: "A falling/commitment clinic for my gym or group",
-    },
-    { id: "corporate", label: "A program for my company, team, or retreat" },
-  ],
-  notes: {
-    "guiding-day":
-      "Most Guiding Day climbers move into Personal Coaching once they're hooked.",
-    "personal-coaching":
-      "Add an On-Route/Project Training Day once you've got a specific route to send.",
-    "training-day":
-      "Works best paired with monthly Personal Coaching, but stands on its own as a single booking.",
-    "falling-clinic":
-      "Run through your gym or as a private group booking — email to set a date.",
-    corporate: "",
-  } as Record<string, string>,
-};
-
 export const SERVICES: Service[] = [
   {
     id: "guiding-day",

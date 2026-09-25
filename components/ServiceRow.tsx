@@ -6,21 +6,16 @@ import Reveal from "@/components/Reveal";
 
 type Props = {
   service: Service;
-  highlighted: boolean;
-  register: (id: string, node: HTMLElement | null) => void;
 };
 
-export default function ServiceRow({ service, highlighted, register }: Props) {
+export default function ServiceRow({ service }: Props) {
   const reduce = useReducedMotion();
 
   return (
     <Reveal
       as="article"
       id={service.id}
-      register={(node) => register(service.id, node)}
-      className={`grid grid-cols-1 items-start gap-6 border-b border-line py-8 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:gap-12 ${
-        highlighted ? "shadow-[0_0_0_1px_#C08A52]" : ""
-      }`}
+      className="grid grid-cols-1 items-start gap-6 border-b border-line py-8 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:gap-12"
     >
       <div>
         <h3 className="font-display text-[1.85rem] font-bold tracking-[-0.01em] text-ink">
