@@ -6,9 +6,9 @@ const config: Config = {
     extend: {
       colors: {
         ink: "#F1EBDE",
-        chalk: "#18140F",
-        surface: "#231D15",
-        "surface-2": "#2A231A",
+        chalk: "#2A241B",
+        surface: "#352D21",
+        "surface-2": "#3C3326",
         sandstone: "#C08A52",
         mark: "#C0713A",
         muted: "#B8AC97",
