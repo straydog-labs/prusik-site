@@ -19,11 +19,11 @@ export default function About() {
           </p>
         </div>
         {ABOUT.paragraphs.map((paragraph) => (
-          <p key={paragraph} className="mb-4 max-w-2xl text-copy text-ink last:mb-0">
+          <p key={paragraph} className="mb-5 max-w-[40ch] text-copy text-ink last:mb-0">
             {paragraph}
           </p>
         ))}
-        <p className="mt-5 text-base text-muted">{ABOUT.location}</p>
+        <p className="mt-6 text-copy text-muted">{ABOUT.location}</p>
 
         <div className="mt-10">
           <h3 className="mb-4 font-mono text-eyebrow font-medium uppercase text-mark">
@@ -42,7 +42,7 @@ export default function About() {
         </div>
 
         <div className="mt-10 max-w-2xl rounded-panel border border-line bg-surface p-7">
-          <p className="mb-4 text-[0.98rem] leading-relaxed text-muted">
+          <p className="mb-4 max-w-[40ch] text-copy text-muted">
             {ABOUT.book.text}
           </p>
           <motion.a

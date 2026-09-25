@@ -70,9 +70,9 @@ export const SERVICES: Service[] = [
       "Your first day on rock. No experience or gear needed, just show up.",
     ],
     points: [
-      { label: "Your First Fall", text: "Taught on day one, not left to chance." },
+      { label: "Your first fall", text: "Taught on day one, not left to chance." },
       {
-        label: "Own the Risk",
+        label: "Own the risk",
         text: "You’re choosing this. You’re accountable for what happens next.",
       },
     ],
@@ -94,7 +94,7 @@ export const SERVICES: Service[] = [
     id: "personal-coaching",
     title: "Personal Coaching",
     paragraphs: [
-      "Coaching that runs alongside your actual training, not two days a month in isolation. Every session picks up from what you logged in SEE since the last one: real patterns, not memory.",
+      "Coaching that runs alongside your actual training, not two days a month in isolation. Each session picks up from what you logged in SEE: real patterns, not memory.",
     ],
     points: [
       { label: "Technique", text: "Cleaner movement, on purpose." },
@@ -116,15 +116,15 @@ export const SERVICES: Service[] = [
     id: "training-day",
     title: "On-Route/Project Training Day",
     paragraphs: [
-      "A full day on your actual route or project, not a demo climb. We work technique, practice falling on purpose, and build the case for committing when it counts.",
+      "A full day on your actual route or project, not a demo climb. Technique, falling on purpose, and the case for committing when it counts.",
     ],
     points: [
       { label: "Technique", text: "Movement that holds up under real pressure." },
       {
-        label: "Falling Practice",
+        label: "Falling practice",
         text: "Structured fall practice on the route.",
       },
-      { label: "Mental Preparedness", text: "The mental tools to commit." },
+      { label: "Mental preparedness", text: "The mental tools to commit." },
     ],
     pricing: {
       kind: "single",
@@ -140,7 +140,7 @@ export const SERVICES: Service[] = [
     id: "falling-clinic",
     title: "Falling & Commitment Clinic",
     paragraphs: [
-      "Rock Warrior’s Way Level 1 clinics on falling and commitment, held at your gym or outside. Small groups, real practice, real conversation about the risk you’re taking.",
+      "Rock Warrior’s Way Level 1 clinics on falling and commitment, at your gym or outside. Small groups, real practice, real conversation about the risk you’re taking.",
       "Up to 6 climbers, bring your own gear.",
     ],
     points: [
@@ -167,11 +167,11 @@ export const SERVICES: Service[] = [
     ],
     points: [
       {
-        label: "Scoped to the Group",
+        label: "Scoped to the group",
         text: "Built around your people, not a stock program.",
       },
       {
-        label: "One Point of Contact",
+        label: "One point of contact",
         text: "You talk to me, not a sales team.",
       },
     ],
@@ -187,7 +187,8 @@ export const ABOUT = {
   name: "John Campbell",
   role: "Founder, Guiding & Coaching",
   paragraphs: [
-    "Climbing has taught me how to work with my stress, my fears, my ego, at the crags and in every other part of my life. Finding that edge, where I can know when to push myself and when to let myself back off, has empowered me to fall in love with the process as I work towards my goals. I want to share that with as many people as I can.",
+    "Climbing has taught me how to work with my stress, my fears, my ego, at the crags and in every other part of my life.",
+    "Finding that edge, where I can know when to push myself and when to let myself back off, has empowered me to fall in love with the process as I work towards my goals. I want to share that with as many people as I can.",
     "I started out as a performance coach for athletes, then climbing pulled me in and I started coaching climbers instead. What I found was the same thing I want for you: real empowerment under stress.",
     "Now I bring it all together, exercise science, the mental game, and technique training, to help you find your edge and work with it, not against it.",
   ],
