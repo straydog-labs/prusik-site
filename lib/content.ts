@@ -42,13 +42,16 @@ export const SERVICES: Service[] = [
     id: "guiding-day",
     title: "Guiding Day",
     paragraphs: [
-      "Your first day on rock. No experience or gear needed, just show up.",
+      "Your first day on rock. No experience or gear needed. I bring the kit, we climb, and we go at your pace.",
     ],
     points: [
-      { label: "Your first fall", text: "Taught on day one, not left to chance." },
       {
-        label: "Own the risk",
-        text: "You’re choosing this. You’re accountable for what happens next.",
+        label: "Falling",
+        text: "Learn falling as a skill and understand risk management.",
+      },
+      {
+        label: "The day",
+        text: "You leave knowing how a day outside actually works. Nothing is assumed.",
       },
     ],
     pricing: {
@@ -72,9 +75,15 @@ export const SERVICES: Service[] = [
       "Coaching that runs alongside your actual training, not two days a month in isolation. Each session picks up from what you logged in SEE: real patterns, not memory.",
     ],
     points: [
-      { label: "Technique", text: "Cleaner movement, on purpose." },
-      { label: "Video", text: "Watch the attempt, not the story of it." },
-      { label: "Mental game", text: "Attention is a skill. Train it." },
+      {
+        label: "Technique",
+        text: "Technique, proper falling, and intentional movement.",
+      },
+      { label: "Video analysis", text: "Watch the attempt, not the story of it." },
+      {
+        label: "Mental game",
+        text: "Learn how to direct attention and focus on what you need to.",
+      },
     ],
     pricing: {
       kind: "single",
