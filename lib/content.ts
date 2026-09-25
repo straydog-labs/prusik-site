@@ -24,11 +24,11 @@ export type Service = {
 };
 
 export const SITE = {
-  title: "Prusik — Technique. Mental Game. Training.",
+  title: "Prusik — Training.",
   description:
-    "Prusik — technique, mental game, and training from Leipers Fork, TN. Guiding days, personal coaching, on-route/project training days, falling and commitment clinics, and corporate and group programs.",
+    "Prusik — training from Leipers Fork, TN. Guiding days, personal coaching, on-route/project training days, falling and commitment clinics, and corporate and group programs.",
   wordmark: "Prusik",
-  subtitle: "Technique. Mental Game. Training.",
+  subtitle: "Training",
   email: "j.morecowbell@gmail.com",
 };
 
@@ -72,14 +72,17 @@ export const SERVICES: Service[] = [
     id: "personal-coaching",
     title: "Personal Coaching",
     paragraphs: [
-      "Coaching that runs alongside your actual training, not two days a month in isolation. Each session picks up from what you logged in SEE: real patterns, not memory.",
+      "A scaffold coaching approach that empowers you to understand what goals, training, and mental game mean to you specifically.",
     ],
     points: [
       {
         label: "Technique",
-        text: "Technique, proper falling, and intentional movement.",
+        text: "Proper falling and intentional movement.",
       },
-      { label: "Video analysis", text: "Watch the attempt, not the story of it." },
+      {
+        label: "Video analysis",
+        text: "I review your attempts, find the pattern that keeps showing up, and name the skill to train next.",
+      },
       {
         label: "Mental game",
         text: "Learn how to direct attention and focus on what you need to.",
